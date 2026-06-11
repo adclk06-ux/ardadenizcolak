@@ -12,15 +12,15 @@
 }
 
 .animate-fade-in {
-  animation: fadeInUp var(--duration-slow) var(--easing-default) forwards;
+  animation: fadeInUp var(--duration-slow) ease-out forwards;
 }
 
 .transition-color {
-  transition: color var(--duration-fast) var(--easing-hover);
+  transition: color var(--duration-fast) ease-out;
 }
 
 .transition-opacity {
-  transition: opacity var(--duration-normal) var(--easing-default);
+  transition: opacity var(--duration-normal) ease-out;
 }
 
 /* Reduced motion — platform must be complete at rest */

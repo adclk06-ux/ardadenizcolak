@@ -75,10 +75,7 @@
   --duration-slow: 400ms;
   --duration-deliberate: 500ms;
 
-  --easing-default: cubic-bezier(0.25, 0.1, 0.25, 1.0);
-  --easing-hover: ease-out;
-  --easing-enter: cubic-bezier(0.0, 0.0, 0.2, 1.0);
-  --easing-exit: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+  --easing: ease-out;
 
   /* ─── Layout ─── */
   --max-width: 1200px;

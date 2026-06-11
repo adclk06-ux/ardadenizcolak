@@ -3,7 +3,7 @@
 a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
-  transition: color var(--duration-fast) var(--easing-hover);
+  transition: color var(--duration-fast) ease-out;
 }
 
 a:hover {
