@@ -20,13 +20,59 @@ const { Content } = await entry.render();
 ---
 
 <Base title={entry.data.title}>
-  <article>
-    <header>
+  <article class="system-article">
+    <header class="system-header">
+      <div class="system-meta">
+        <span class="system-category">{entry.data.category}</span>
+        <span class="system-complexity">{entry.data.complexity}</span>
+      </div>
       <h1>{entry.data.title}</h1>
-      <p>{entry.data.category} · {entry.data.complexity}</p>
     </header>
     <Prose>
       <Content />
     </Prose>
   </article>
 </Base>
+
+<style>
+  .system-article {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  .system-header {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .system-meta {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .system-category {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+  }
+
+  .system-complexity {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+  }
+
+  .system-header h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+</style>

@@ -1,10 +1,174 @@
 ---
 import Base from "@layouts/Base.astro";
-import Display from "@components/typography/Display.astro";
-import Body from "@components/typography/Body.astro";
+import { getPublishedNotes } from "@lib/content.js";
+import { siteConfig } from "@lib/siteConfig.js";
+
+const entries = await getPublishedNotes();
+
+const notesByCategory = entries.reduce<Record<string, typeof entries>>((acc, entry) => {
+  const cat = entry.data.category;
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(entry);
+  return acc;
+}, {});
+
+const categories = siteConfig.categories;
 ---
 
 <Base title="Notes">
-  <Display as="h1">Notes</Display>
-  <Body as="p">Technical writing and engineering essays.</Body>
+  <div class="notes-index">
+    <header>
+      <h1>Notes</h1>
+      <p class="subtitle">Technical writing and engineering essays.</p>
+    </header>
+
+    <nav class="categories" aria-label="Categories">
+      <ul>
+        {categories.map((cat) => (
+          <li>
+            <a href={`#${cat.toLowerCase()}`}>{cat}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="category-groups">
+      {categories.map((cat) => {
+        const catNotes = notesByCategory[cat] || [];
+        return (
+          <section id={cat.toLowerCase()} class="category-section">
+            <h2>{cat}</h2>
+            {catNotes.length > 0 ? (
+              <ul class="note-list">
+                {catNotes.map((entry) => (
+                  <li class="note-item">
+                    <a href={`/notes/${entry.slug}`} class="note-link">
+                      <span class="note-title">{entry.data.title}</span>
+                      <span class="note-excerpt">{entry.data.excerpt}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="empty">No notes in this category yet.</p>
+            )}
+          </section>
+        );
+      })}
+    </div>
+  </div>
 </Base>
+
+<style>
+  .notes-index {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  header {
+    margin-bottom: var(--space-7);
+  }
+
+  h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    margin-top: var(--space-3);
+  }
+
+  .categories {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .categories ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .categories a {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast) ease-out;
+  }
+
+  .categories a:hover {
+    color: var(--color-text);
+  }
+
+  .category-groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+
+  .category-section h2 {
+    font-size: var(--type-section);
+    line-height: var(--line-section);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .note-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .note-item {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-3);
+  }
+
+  .note-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .note-link:hover .note-title {
+    color: var(--color-accent);
+  }
+
+  .note-title {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    transition: color var(--duration-fast) ease-out;
+  }
+
+  .note-excerpt {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+    max-width: var(--measure-body);
+  }
+
+  .empty {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
