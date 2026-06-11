@@ -19,26 +19,28 @@
 
   /* ─── Typography ─── */
   /*
-    4 sizes, ratio 1.5.
-    Caption (0.75) → Body (1) → Heading (1.5) → Display (2.25)
-    Each step ×1.5. Mathematical, not arbitrary.
+    6 sizes, explicit pixel values.
+    Display (72) → Hero (56) → Section (36) → Body (20) → Small (16) → Mono (15)
   */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
 
-  --type-caption: 0.75rem; /* 12px */
-  --type-body: 1rem; /* 16px — base */
-  --type-heading: 1.5rem; /* 24px */
-  --type-display: 2.25rem; /* 36px */
+  --type-display: 72px;
+  --type-hero: 56px;
+  --type-section: 36px;
+  --type-body: 20px;
+  --type-small: 16px;
+  --type-mono: 15px;
 
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
 
-  --line-display: 1.1;
-  --line-heading: 1.2;
+  --line-display: 1.0;
+  --line-hero: 1.1;
+  --line-section: 1.2;
   --line-body: 1.6;
-  --line-caption: 1.4;
+  --line-small: 1.4;
   --line-mono: 1.5;
 
   --measure-body: 66ch;
@@ -61,9 +63,9 @@
 
   /* ─── Border Radius ─── */
   /* Minimal. Sharp corners are the default. Rounding is intentional, not decorative. */
-  --radius-none: 0;
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
 
   /* ─── Motion ─── */
   /* Slower transitions signal confidence. No ambient motion. */

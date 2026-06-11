@@ -33,11 +33,11 @@ h1 {
 }
 
 h2 {
-  font-size: calc(var(--type-body) * 1.5);
+  font-size: var(--type-section);
 }
 
 h3 {
-  font-size: calc(var(--type-body) * 1.25);
+  font-size: var(--type-body);
 }
 
 hr {
@@ -55,7 +55,7 @@ blockquote {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--type-caption);
+  font-size: var(--type-small);
 }
 
 th,
