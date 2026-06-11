@@ -1,40 +1,41 @@
 ---
 import Base from "@layouts/Base.astro";
 import { siteConfig } from "@lib/siteConfig.js";
-
-const navItems = siteConfig.navigation.filter((item) => item.label !== "main");
 ---
 
 <Base title={siteConfig.name} description={siteConfig.description}>
   <div class="homepage">
-    <div class="identity">
-      <h1>{siteConfig.name}</h1>
-    </div>
-    <nav class="destinations" aria-label="Destinations">
-      <ul>
-        {
-          navItems.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <p class="eyebrow">{siteConfig.name}</p>
+    <h1 class="title">{siteConfig.title}</h1>
+    <p class="tagline">{siteConfig.tagline}</p>
+    <p class="description">{siteConfig.description}</p>
+    <a href="/work" class="cta">Selected Work <span aria-hidden="true">↓</span></a>
   </div>
 </Base>
 
 <style>
   .homepage {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-5);
     min-height: calc(100vh - var(--header-height));
     padding-inline: var(--space-5);
+    max-width: var(--max-width);
+    margin-inline: auto;
   }
 
-  .identity h1 {
+  .eyebrow {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .title {
     font-size: var(--type-display);
     line-height: var(--line-display);
     font-weight: var(--weight-semibold);
@@ -42,32 +43,44 @@ const navItems = siteConfig.navigation.filter((item) => item.label !== "main");
     color: var(--color-text);
   }
 
-  .destinations ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+  .tagline {
+    font-size: var(--type-hero);
+    line-height: var(--line-hero);
+    font-weight: var(--weight-regular);
+    color: var(--color-text);
+    max-width: 20ch;
   }
 
-  .destinations a {
+  .description {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-body);
+  }
+
+  .cta {
     font-size: var(--type-body);
     line-height: var(--line-body);
     font-weight: var(--weight-medium);
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-accent);
     transition: color var(--duration-fast) var(--easing-hover);
   }
 
-  .destinations a:hover {
-    color: var(--color-text);
+  .cta:hover {
+    color: var(--color-accent-hover);
   }
 
   @media (max-width: 639px) {
     .homepage {
-      grid-template-columns: 1fr;
-      gap: var(--space-6);
+      gap: var(--space-4);
       padding-top: var(--space-7);
       padding-bottom: var(--space-7);
+    }
+
+    .tagline {
+      font-size: var(--type-section);
+      line-height: var(--line-section);
     }
   }
 </style>

@@ -8,8 +8,9 @@ export const siteConfig = {
   /** Identity */
   name: "Arda Deniz Çolak",
   title: "Software Engineer",
+  tagline: "Building software that earns trust over time.",
   description:
-    "Software Engineer — Scalable Products, AI Applications, Automation Systems, Long-term Infrastructure",
+    "Senior engineer specializing in scalable products, AI applications, automation systems, and long-term infrastructure.",
 
   /** Domain */
   url: "https://ardadenizcolak.dev",
