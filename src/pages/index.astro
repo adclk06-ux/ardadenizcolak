@@ -1,25 +1,73 @@
 ---
 import Base from "@layouts/Base.astro";
-import Display from "@components/typography/Display.astro";
-import Body from "@components/typography/Body.astro";
 import { siteConfig } from "@lib/siteConfig.js";
+
+const navItems = siteConfig.navigation.filter((item) => item.label !== "main");
 ---
 
 <Base title={siteConfig.name} description={siteConfig.description}>
   <div class="homepage">
-    <Display as="h1">{siteConfig.name}</Display>
-    <Body as="p">{siteConfig.description}</Body>
+    <div class="identity">
+      <h1>{siteConfig.name}</h1>
+    </div>
+    <nav class="destinations" aria-label="Destinations">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
 </Base>
 
 <style>
   .homepage {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-8);
+    min-height: calc(100vh - var(--header-height));
+    padding-inline: var(--space-5);
+  }
+
+  .identity h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .destinations ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: calc(100vh - var(--header-height) - 200px);
-    gap: var(--space-3);
-    padding-top: var(--space-7);
-    padding-bottom: var(--space-7);
+    gap: var(--space-2);
+  }
+
+  .destinations a {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast) var(--easing-hover);
+  }
+
+  .destinations a:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 639px) {
+    .homepage {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-7);
+    }
   }
 </style>
