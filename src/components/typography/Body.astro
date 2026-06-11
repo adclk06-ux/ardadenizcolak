@@ -1,0 +1,20 @@
+---
+interface Props {
+  as?: "p" | "span" | "div";
+}
+
+const { as: Tag = "p" } = Astro.props;
+---
+
+<Tag class="body-text">
+  <slot />
+</Tag>
+
+<style>
+  .body-text {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-primary);
+    max-width: var(--measure-body);
+  }
+</style>

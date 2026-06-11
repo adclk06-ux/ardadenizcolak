@@ -1,0 +1,99 @@
+/* Design Tokens — Single source of truth */
+/* See ADR-0003: Styling System, Product DNA Section 16 */
+
+:root {
+  /* ─── Colors ─── */
+  /*
+    90% monochrome, 10% accent maximum.
+    Semantic naming: what the color does, not where it sits.
+    No gradients. No duotone. No color overlays on imagery.
+  */
+  --color-background: #fafaf9;
+  --color-surface:    #f4f4f5;
+  --color-text:       #171717;
+  --color-text-muted: #a1a1aa;
+  --color-border:     #e4e4e7;
+  --color-accent:     #52525b;
+
+  /* ─── Typography ─── */
+  /*
+    4 sizes, ratio 1.5.
+    Caption (0.75) → Body (1) → Heading (1.5) → Display (2.25)
+    Each step ×1.5. Mathematical, not arbitrary.
+  */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+
+  --type-caption: 0.75rem;  /* 12px */
+  --type-body:    1rem;     /* 16px — base */
+  --type-heading: 1.5rem;   /* 24px */
+  --type-display: 2.25rem;  /* 36px */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+
+  --line-display: 1.1;
+  --line-heading: 1.2;
+  --line-body:    1.6;
+  --line-caption: 1.4;
+  --line-mono:    1.5;
+
+  --measure-body:  66ch;
+  --measure-prose: 72ch;
+
+  /* ─── Spacing ─── */
+  /*
+    Modular scale: 4px base unit.
+    All values are multiples of 0.25rem for crisp rendering.
+    Use the number that matches the multiple: space-1 = 4px, space-4 = 16px.
+  */
+  --space-1: 0.25rem;  /* 4px  */
+  --space-2: 0.5rem;   /* 8px  */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-9: 6rem;     /* 96px */
+  --space-10: 8rem;    /* 128px */
+
+  /* Legacy aliases — prefer numbered scale in new code */
+  --space-xs:  var(--space-1);
+  --space-sm:  var(--space-2);
+  --space-md:  var(--space-4);
+  --space-lg:  var(--space-6);
+  --space-xl:  var(--space-8);
+  --space-2xl: var(--space-10);
+
+  /* ─── Border Radius ─── */
+  /* Minimal. Sharp corners are the default. Rounding is intentional, not decorative. */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+
+  /* ─── Motion ─── */
+  /* Slower transitions signal confidence. No ambient motion. */
+  --duration-instant:   0ms;
+  --duration-fast:      150ms;
+  --duration-normal:    300ms;
+  --duration-slow:      400ms;
+  --duration-deliberate: 500ms;
+
+  --easing-default: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --easing-hover:   ease-out;
+  --easing-enter:   cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --easing-exit:    cubic-bezier(0.4, 0.0, 1.0, 1.0);
+
+  /* ─── Layout ─── */
+  --max-width:     1200px;
+  --header-height: 64px;
+
+  /* ─── Shadows ─── */
+  /*
+    EXCLUDED per Product DNA Section 16: "No heavy shadows. No 3D effects."
+    Material honesty: elements exist on the surface, not above it.
+    If elevation is required, use border or spacing, never shadow.
+  */
+}

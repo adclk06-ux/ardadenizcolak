@@ -1,0 +1,25 @@
+---
+import Base from "@layouts/Base.astro";
+import Display from "@components/typography/Display.astro";
+import Body from "@components/typography/Body.astro";
+import { siteConfig } from "@lib/siteConfig";
+---
+
+<Base title={siteConfig.name} description={siteConfig.description}>
+  <div class="homepage">
+    <Display as="h1">{siteConfig.name}</Display>
+    <Body as="p">{siteConfig.description}</Body>
+  </div>
+</Base>
+
+<style>
+  .homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height) - 200px);
+    gap: var(--space-md);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+</style>

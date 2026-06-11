@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@components/layout/BaseLayout.astro";
+import PageHeader from "@components/layout/PageHeader.astro";
+import PageFooter from "@components/layout/PageFooter.astro";
+import Main from "@components/layout/Main.astro";
+import { pageTitle } from "@lib/metadata";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={pageTitle(title)} description={description}>
+  <div class="site-wrapper">
+    <PageHeader />
+    <Main>
+      <slot />
+    </Main>
+    <PageFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+</style>

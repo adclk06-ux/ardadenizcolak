@@ -1,0 +1,40 @@
+---
+interface Props {
+  class?: string;
+  gap?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10";
+  align?: "start" | "center" | "end" | "stretch";
+}
+
+const {
+  class: className = "",
+  gap = "4",
+  align = "stretch",
+} = Astro.props;
+
+const gapMap = {
+  "1": "var(--space-1)",
+  "2": "var(--space-2)",
+  "3": "var(--space-3)",
+  "4": "var(--space-4)",
+  "5": "var(--space-5)",
+  "6": "var(--space-6)",
+  "7": "var(--space-7)",
+  "8": "var(--space-8)",
+  "9": "var(--space-9)",
+  "10": "var(--space-10)",
+};
+---
+
+<div
+  class={`stack ${className}`}
+  style={`gap: ${gapMap[gap]}; align-items: ${align};`}
+>
+  <slot />
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

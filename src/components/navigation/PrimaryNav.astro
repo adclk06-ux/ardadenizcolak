@@ -1,0 +1,41 @@
+---
+import NavItem from "./NavItem.astro";
+import { siteConfig } from "@lib/siteConfig";
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav aria-label="Primary">
+  <ul class="nav-list">
+    {
+      siteConfig.navigation.map((item) => (
+        <li>
+          <NavItem
+            href={item.href}
+            label={item.label}
+            isActive={
+              item.href === "/"
+                ? currentPath === "/"
+                : currentPath.startsWith(item.href)
+            }
+          />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+  }
+
+  @media (max-width: 639px) {
+    .nav-list {
+      display: none;
+    }
+  }
+</style>

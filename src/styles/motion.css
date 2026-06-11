@@ -1,0 +1,35 @@
+/* Animation definitions — ADR-0004: Animation Policy */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp var(--duration-slow) var(--easing-default) forwards;
+}
+
+.transition-color {
+  transition: color var(--duration-fast) var(--easing-hover);
+}
+
+.transition-opacity {
+  transition: opacity var(--duration-normal) var(--easing-default);
+}
+
+/* Reduced motion — platform must be complete at rest */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  isActive: boolean;
+}
+
+const { href, label, isActive } = Astro.props;
+---
+
+<a href={href} class={isActive ? "nav-item active" : "nav-item"} aria-current={isActive ? "page" : undefined}>
+  {label}
+</a>
+
+<style>
+  .nav-item {
+    font-size: var(--type-caption);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-muted);
+    letter-spacing: 0.01em;
+    transition: color var(--duration-fast) var(--easing-hover);
+    padding: var(--space-xs) 0;
+  }
+
+  .nav-item:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-item.active {
+    color: var(--color-primary);
+  }
+</style>
