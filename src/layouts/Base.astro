@@ -1,4 +1,10 @@
 ---
+import BaseLayout from "@components/layout/BaseLayout.astro";
+import PageHeader from "@components/layout/PageHeader.astro";
+import PageFooter from "@components/layout/PageFooter.astro";
+import Main from "@components/layout/Main.astro";
+import { pageTitle } from "@lib/metadata.js";
+
 interface Props {
   title: string;
   description?: string | undefined;

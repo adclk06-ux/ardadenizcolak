@@ -1,4 +1,7 @@
 ---
+import NavItem from "./NavItem.astro";
+import { siteConfig } from "@lib/siteConfig.js";
+
 const currentPath = Astro.url.pathname;
 ---
 
@@ -26,7 +29,7 @@ const currentPath = Astro.url.pathname;
   .nav-list {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-3);
     list-style: none;
   }
 

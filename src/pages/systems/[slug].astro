@@ -1,5 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import Prose from "@components/typography/Prose.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("systems");
