@@ -5,11 +5,7 @@ interface Props {
   align?: "start" | "center" | "end" | "stretch";
 }
 
-const {
-  class: className = "",
-  gap = "4",
-  align = "stretch",
-} = Astro.props;
+const { class: className = "", gap = "4", align = "stretch" } = Astro.props;
 
 const gapMap = {
   "1": "var(--space-1)",

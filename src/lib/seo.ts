@@ -3,7 +3,7 @@
  * All meta tags are constructed at build time. No runtime SEO computation.
  */
 
-import { siteConfig } from "./siteConfig";
+import { siteConfig } from "./siteConfig.js";
 
 export interface SeoMeta {
   title: string;
@@ -21,7 +21,8 @@ export function generateSeoMeta(
   pageDescription?: string,
   pagePath?: string,
 ): SeoMeta {
-  const title = pageTitle === siteConfig.name ? siteConfig.name : `${pageTitle} — ${siteConfig.name}`;
+  const title =
+    pageTitle === siteConfig.name ? siteConfig.name : `${pageTitle} — ${siteConfig.name}`;
   const description = pageDescription || siteConfig.description;
   const path = pagePath || "/";
   const canonical = `${siteConfig.url}${path}`;

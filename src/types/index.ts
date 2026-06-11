@@ -3,7 +3,7 @@
  * Import from `@types` to access all type definitions.
  */
 
-export * from "./metadata";
-export * from "./project";
-export * from "./note";
-export * from "./system";
+export * from "./metadata.js";
+export * from "./project.js";
+export * from "./note.js";
+export * from "./system.js";

@@ -5,11 +5,7 @@ interface Props {
   max?: string;
 }
 
-const {
-  class: className = "",
-  andText = false,
-  max = "var(--measure-prose)",
-} = Astro.props;
+const { class: className = "", andText = false, max = "var(--measure-prose)" } = Astro.props;
 ---
 
 <div

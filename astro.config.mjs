@@ -1,5 +1,5 @@
-import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +17,17 @@ export default defineConfig({
     },
   },
   vite: {
+    resolve: {
+      alias: {
+        "@": "/src",
+        "@components": "/src/components",
+        "@layouts": "/src/layouts",
+        "@content": "/src/content",
+        "@styles": "/src/styles",
+        "@lib": "/src/lib",
+        "@types": "/src/types",
+      },
+    },
     css: {
       modules: {
         localsConvention: "camelCase",

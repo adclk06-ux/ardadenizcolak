@@ -1,15 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import Base from "@layouts/Base.astro";
-import Prose from "@components/typography/Prose.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const entries = await getCollection("work");
-  return entries.map((entry) => ({
+  return entries.map((entry: CollectionEntry<"work">) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
+
+type Props = {
+  entry: CollectionEntry<"work">;
+};
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();

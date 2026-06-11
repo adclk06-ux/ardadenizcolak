@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import type { LifecycleState } from "./metadata";
+import type { LifecycleState } from "./metadata.js";
 
 /**
  * Project (Work) content types.

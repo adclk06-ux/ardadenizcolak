@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import type { LifecycleState, NoteCategory } from "./metadata";
+import type { LifecycleState, NoteCategory } from "./metadata.js";
 
 /**
  * Note (Technical Writing) content types.

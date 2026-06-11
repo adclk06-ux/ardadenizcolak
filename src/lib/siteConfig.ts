@@ -58,12 +58,7 @@ export const siteConfig = {
   responseTime: "48 hours for meaningful inquiries. 72 hours for complex requests.",
 
   /** Inquiry types — what contact is welcome */
-  inquiryTypes: [
-    "Collaboration",
-    "Consulting",
-    "Speaking",
-    "Hiring",
-  ] as const,
+  inquiryTypes: ["Collaboration", "Consulting", "Speaking", "Hiring"] as const,
 
   /** What is not welcome */
   notWelcome: [
