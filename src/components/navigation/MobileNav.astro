@@ -1,28 +1,43 @@
 ---
-import { siteConfig } from "@lib/siteConfig.js";
+import { t } from "@lib/i18n.js";
+import type { Lang } from "@lib/i18n.js";
 
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "tr" } = Astro.props;
 const currentPath = Astro.url.pathname;
+const tx = t(lang);
+
+const navItems = [
+  { key: "work", href: "/work" },
+  { key: "notes", href: "/notes" },
+  { key: "systems", href: "/systems" },
+  { key: "about", href: "/about" },
+  { key: "contact", href: "/contact" },
+] as const;
 ---
 
-<nav class="mobile-nav" aria-label="Primary mobile">
+<nav class="mobile-nav" aria-label={tx.mobileNav.ariaLabel}>
   <button
     class="mobile-toggle"
     aria-expanded="false"
     aria-controls="mobile-menu"
     data-mobile-toggle
   >
-    Menu
+    {tx.mobileNav.menu}
   </button>
   <ul class="mobile-list" id="mobile-menu" data-mobile-menu hidden>
     {
-      siteConfig.navigation.map((item) => (
+      navItems.map((item) => (
         <li>
           <a
             href={item.href}
             class={currentPath.startsWith(item.href) ? "active" : ""}
             aria-current={currentPath.startsWith(item.href) ? "page" : undefined}
           >
-            {item.label}
+            {tx.nav[item.key]}
           </a>
         </li>
       ))

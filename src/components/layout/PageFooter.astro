@@ -1,13 +1,21 @@
 ---
 import { siteConfig } from "@lib/siteConfig.js";
+import { t } from "@lib/i18n.js";
+import type { Lang } from "@lib/i18n.js";
 
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "tr" } = Astro.props;
+const tx = t(lang);
 const year = new Date().getFullYear();
 ---
 
 <footer class="page-footer">
   <div class="container">
     <p class="footer-text">
-      <a href="/">{siteConfig.name}</a> — <a href="/systems">Systems</a> — Built with intention. © {year}
+      <a href="/">{siteConfig.name}</a> — <a href="/systems">{tx.footer.systems}</a> — {tx.footer.builtWith} {year}
     </p>
   </div>
 </footer>

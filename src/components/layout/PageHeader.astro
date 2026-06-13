@@ -1,7 +1,15 @@
 ---
 import PrimaryNav from "@components/navigation/PrimaryNav.astro";
 import MobileNav from "@components/navigation/MobileNav.astro";
+import LanguageSwitcher from "@components/navigation/LanguageSwitcher.astro";
 import { siteConfig } from "@lib/siteConfig.js";
+import type { Lang } from "@lib/i18n.js";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "tr" } = Astro.props;
 ---
 
 <header class="page-header" data-nav>
@@ -9,8 +17,11 @@ import { siteConfig } from "@lib/siteConfig.js";
     <a href="/" class="logo" aria-label="Home">
       <span>{siteConfig.name}</span>
     </a>
-    <PrimaryNav />
-    <MobileNav />
+    <div class="nav-group">
+      <PrimaryNav lang={lang} />
+      <LanguageSwitcher lang={lang} />
+    </div>
+    <MobileNav lang={lang} />
   </div>
 </header>
 
@@ -56,5 +67,17 @@ import { siteConfig } from "@lib/siteConfig.js";
 
   .logo:hover {
     opacity: 0.7;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 639px) {
+    .nav-group {
+      display: none;
+    }
   }
 </style>

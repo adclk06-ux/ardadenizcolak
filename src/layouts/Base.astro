@@ -4,23 +4,25 @@ import PageHeader from "@components/layout/PageHeader.astro";
 import PageFooter from "@components/layout/PageFooter.astro";
 import Main from "@components/layout/Main.astro";
 import { pageTitle } from "@lib/metadata.js";
+import type { Lang } from "@lib/i18n.js";
 
 interface Props {
   title: string;
   description?: string | undefined;
+  lang?: Lang;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang = "tr" } = Astro.props;
 const canonicalPath = Astro.url.pathname;
 ---
 
-<BaseLayout title={pageTitle(title)} description={description} canonicalPath={canonicalPath}>
+<BaseLayout title={pageTitle(title)} description={description} canonicalPath={canonicalPath} lang={lang}>
   <div class="site-wrapper">
-    <PageHeader />
+    <PageHeader lang={lang} />
     <Main>
       <slot />
     </Main>
-    <PageFooter />
+    <PageFooter lang={lang} />
   </div>
 </BaseLayout>
 

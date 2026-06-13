@@ -15,7 +15,7 @@ const notesByCategory = entries.reduce<Record<string, typeof entries>>((acc, ent
 
 const categories = siteConfig.categories;
 
-const lang = "tr";
+const lang = "de";
 const tx = t(lang);
 ---
 
@@ -46,7 +46,7 @@ const tx = t(lang);
               <ul class="note-list">
                 {catNotes.map((entry) => (
                   <li class="note-item">
-                    <a href={`/notes/${entry.slug}`} class="note-link">
+                    <a href={`/de/notes/${entry.slug}`} class="note-link">
                       <span class="note-title">{entry.data.title}</span>
                       <span class="note-excerpt">{entry.data.excerpt}</span>
                     </a>

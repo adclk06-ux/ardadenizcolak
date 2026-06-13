@@ -1,18 +1,33 @@
 ---
 import NavItem from "./NavItem.astro";
-import { siteConfig } from "@lib/siteConfig.js";
+import { t } from "@lib/i18n.js";
+import type { Lang } from "@lib/i18n.js";
 
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "tr" } = Astro.props;
 const currentPath = Astro.url.pathname;
+const tx = t(lang);
+
+const navItems = [
+  { key: "work", href: "/work" },
+  { key: "notes", href: "/notes" },
+  { key: "systems", href: "/systems" },
+  { key: "about", href: "/about" },
+  { key: "contact", href: "/contact" },
+] as const;
 ---
 
 <nav aria-label="Primary" class="primary-nav">
   <ul class="nav-list">
     {
-      siteConfig.navigation.map((item) => (
+      navItems.map((item) => (
         <li>
           <NavItem
             href={item.href}
-            label={item.label}
+            label={tx.nav[item.key]}
             isActive={currentPath.startsWith(item.href)}
           />
         </li>

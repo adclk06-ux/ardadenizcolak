@@ -1,0 +1,85 @@
+---
+import { languages, langNames, defaultLang } from "@lib/i18n.js";
+import type { Lang } from "@lib/i18n.js";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+function getNeutralPath(path: string): string {
+  for (const l of languages) {
+    if (l === defaultLang) continue;
+    const prefix = `/${l}`;
+    if (path === prefix) return "/";
+    if (path.startsWith(`${prefix}/`)) return path.slice(prefix.length) || "/";
+  }
+  return path;
+}
+
+function getLangPath(targetLang: Lang, neutralPath: string): string {
+  if (targetLang === defaultLang) return neutralPath;
+  if (neutralPath === "/") return `/${targetLang}`;
+  return `/${targetLang}${neutralPath}`;
+}
+
+const neutralPath = getNeutralPath(currentPath);
+---
+
+<nav class="language-switcher" aria-label="Language">
+  <ul class="lang-list">
+    {
+      languages.map((l) => {
+        const href = getLangPath(l, neutralPath);
+        const isActive = l === lang;
+        return (
+          <li>
+            <a
+              href={href}
+              class={isActive ? "lang-link active" : "lang-link"}
+              hreflang={l}
+              aria-current={isActive ? "true" : undefined}
+            >
+              {langNames[l]}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<style>
+  .language-switcher {
+    display: block;
+  }
+
+  .lang-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .lang-link {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-text-muted);
+    padding: var(--space-1) var(--space-2);
+    transition: color var(--duration-fast) ease-out;
+  }
+
+  .lang-link:hover {
+    color: var(--color-text);
+  }
+
+  .lang-link.active {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-sm);
+  }
+</style>

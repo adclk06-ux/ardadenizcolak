@@ -1,0 +1,106 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import Prose from "@components/typography/Prose.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("work");
+  return entries.map((entry: CollectionEntry<"work">) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<"work">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const lang = "ar";
+---
+
+<Base title={entry.data.title} lang={lang}>
+  <article class="case-study">
+    <header class="case-header">
+      <div class="case-meta">
+        <span class="case-year">{entry.data.year}</span>
+        <span class="case-status">{entry.data.status}</span>
+      </div>
+      <h1>{entry.data.title}</h1>
+      <p class="case-summary">{entry.data.summary}</p>
+      <div class="case-tech">
+        {entry.data.technologies.map((tech: string) => (
+          <span class="tech-tag">{tech}</span>
+        ))}
+      </div>
+    </header>
+    <Prose>
+      <Content />
+    </Prose>
+  </article>
+</Base>
+
+<style>
+  .case-study {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  .case-header {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .case-meta {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .case-year {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+  }
+
+  .case-status {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-accent);
+  }
+
+  .case-header h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+
+  .case-summary {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    margin-top: var(--space-3);
+    max-width: var(--measure-body);
+  }
+
+  .case-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .tech-tag {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+</style>

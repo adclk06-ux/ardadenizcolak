@@ -1,18 +1,27 @@
 ---
 import { siteConfig } from "@lib/siteConfig.js";
+import type { Lang } from "@lib/i18n.js";
+import { langDirs } from "@lib/i18n.js";
 
 interface Props {
   title: string;
   description?: string | undefined;
   canonicalPath?: string | undefined;
+  lang?: Lang;
 }
 
-const { title, description = siteConfig.description, canonicalPath = "" } = Astro.props;
+const {
+  title,
+  description = siteConfig.description,
+  canonicalPath = "",
+  lang = "tr",
+} = Astro.props;
 const canonicalUrl = `${siteConfig.url}${canonicalPath}`;
+const dir = langDirs[lang];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

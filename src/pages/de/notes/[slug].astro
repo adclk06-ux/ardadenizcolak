@@ -1,0 +1,86 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import Prose from "@components/typography/Prose.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("notes");
+  return entries.map((entry: CollectionEntry<"notes">) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<"notes">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const lang = "de";
+---
+
+<Base title={entry.data.title} lang={lang}>
+  <article class="note-article">
+    <header class="note-header">
+      <div class="note-meta">
+        <span class="note-category">{entry.data.category}</span>
+        <span class="note-date">{entry.data.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+      </div>
+      <h1>{entry.data.title}</h1>
+      <p class="note-excerpt">{entry.data.excerpt}</p>
+    </header>
+    <Prose>
+      <Content />
+    </Prose>
+  </article>
+</Base>
+
+<style>
+  .note-article {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  .note-header {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .note-meta {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .note-category {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+  }
+
+  .note-date {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+  }
+
+  .note-header h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+
+  .note-excerpt {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    margin-top: var(--space-3);
+    max-width: var(--measure-body);
+  }
+</style>
