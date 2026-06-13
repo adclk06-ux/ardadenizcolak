@@ -10,14 +10,7 @@ export const siteConfig = {
   title: "Software Engineer",
   tagline: "Building software that earns trust over time.",
   description:
-    "I design scalable systems, AI-powered applications, and modern web experiences with long-term thinking.",
-  philosophy: [
-    "I build systems that outlast their builder.",
-    "I prefer explicit trade-offs over hidden complexity.",
-    "I measure decisions by what remains true in five years.",
-    "I write code for the engineer who inherits it.",
-    "I ship early, document always, and iterate with evidence.",
-  ],
+    "I design scalable systems, AI-powered applications, and thoughtful digital products with long-term maintainability in mind.",
 
   /** Domain */
   url: "https://ardadenizcolak.dev",

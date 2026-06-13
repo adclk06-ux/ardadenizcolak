@@ -5,13 +5,10 @@ import { siteConfig } from "@lib/siteConfig.js";
 
 <Base title={siteConfig.name} description={siteConfig.description}>
   <section class="hero">
-    <h1 class="name">{siteConfig.name}</h1>
-    <p class="position">{siteConfig.tagline}</p>
-    <ul class="philosophy">
-      {siteConfig.philosophy.map((sentence) => (
-        <li>{sentence}</li>
-      ))}
-    </ul>
+    <p class="eyebrow">{siteConfig.title}</p>
+    <h1 class="headline">{siteConfig.tagline}</h1>
+    <p class="description">{siteConfig.description}</p>
+    <a href="/work" class="cta">Explore Work <span aria-hidden="true">→</span></a>
   </section>
 </Base>
 
@@ -21,7 +18,7 @@ import { siteConfig } from "@lib/siteConfig.js";
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: var(--space-6);
+    gap: var(--space-5);
     min-height: calc(100vh - var(--header-height));
     padding-inline: var(--space-5);
     padding-block: var(--space-7);
@@ -30,42 +27,50 @@ import { siteConfig } from "@lib/siteConfig.js";
     width: 100%;
   }
 
-  .name {
+  .eyebrow {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .headline {
     font-size: var(--type-display);
     line-height: var(--line-display);
     font-weight: var(--weight-semibold);
     color: var(--color-text);
-  }
-
-  .position {
-    font-size: var(--type-hero);
-    line-height: var(--line-hero);
-    font-weight: var(--weight-regular);
-    color: var(--color-text);
     max-width: var(--measure-prose);
   }
 
-  .philosophy {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-  }
-
-  .philosophy li {
+  .description {
     font-size: var(--type-body);
     line-height: var(--line-body);
     color: var(--color-text-muted);
     max-width: var(--measure-body);
   }
 
+  .cta {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-accent);
+    transition: color var(--duration-fast) ease-out;
+    margin-top: var(--space-2);
+  }
+
+  .cta:hover {
+    color: var(--color-accent-hover);
+  }
+
   @media (max-width: 639px) {
     .hero {
-      gap: var(--space-5);
+      gap: var(--space-4);
     }
 
-    .position {
+    .headline {
       font-size: var(--type-section);
       line-height: var(--line-section);
     }

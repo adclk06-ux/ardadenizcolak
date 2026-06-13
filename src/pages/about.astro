@@ -1,6 +1,5 @@
 ---
 import Base from "@layouts/Base.astro";
-import { siteConfig } from "@lib/siteConfig.js";
 ---
 
 <Base title="About">
@@ -12,9 +11,11 @@ import { siteConfig } from "@lib/siteConfig.js";
     <section class="about-section">
       <h2>Principles</h2>
       <ul class="principle-list">
-        {siteConfig.philosophy.map((principle) => (
-          <li>{principle}</li>
-        ))}
+        <li>I build systems that outlast their builder.</li>
+        <li>I prefer explicit trade-offs over hidden complexity.</li>
+        <li>I measure decisions by what remains true in five years.</li>
+        <li>I write code for the engineer who inherits it.</li>
+        <li>I ship early, document always, and iterate with evidence.</li>
       </ul>
     </section>
 
