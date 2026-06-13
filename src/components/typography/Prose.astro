@@ -9,7 +9,7 @@
   .prose {
     font-size: var(--type-body);
     line-height: var(--line-body);
-    color: var(--color-primary);
+    color: var(--color-text);
     max-width: var(--measure-prose);
   }
 
@@ -45,7 +45,7 @@
   .prose :global(pre) {
     background: var(--color-surface);
     padding: var(--space-3);
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     overflow-x: auto;
     margin-bottom: var(--space-3);
   }
@@ -53,7 +53,7 @@
   .prose :global(code) {
     background: var(--color-surface);
     padding: 0.125em 0.375em;
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
     font-size: var(--type-mono);
   }
 

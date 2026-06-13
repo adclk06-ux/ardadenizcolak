@@ -1,20 +1,5 @@
 /* Animation definitions — ADR-0004: Animation Policy */
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeInUp var(--duration-slow) ease-out forwards;
-}
-
 .transition-color {
   transition: color var(--duration-fast) ease-out;
 }

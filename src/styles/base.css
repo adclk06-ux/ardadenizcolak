@@ -49,7 +49,7 @@ hr {
 blockquote {
   border-left: 2px solid var(--color-border);
   padding-left: var(--space-3);
-  color: var(--color-muted);
+  color: var(--color-text-muted);
 }
 
 table {
