@@ -36,6 +36,7 @@ export const siteConfig = {
     "Systems",
     "Design",
     "Observations",
+    "Decision Log",
   ] as const,
 
   /** Lifecycle states — six states, exhaustive */

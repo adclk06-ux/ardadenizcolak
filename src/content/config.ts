@@ -17,6 +17,7 @@ export const NoteCategory = z.enum([
   "Systems",
   "Design",
   "Observations",
+  "Decision Log",
 ]);
 
 const work = defineCollection({
@@ -34,9 +35,14 @@ const work = defineCollection({
     repository: z.string().url().optional(),
     demo: z.string().url().optional(),
     problem: z.string().optional(),
-    solution: z.string().optional(),
+    constraints: z.string().optional(),
+    alternatives: z.string().optional(),
+    architecture: z.string().optional(),
+    implementation: z.string().optional(),
     tradeoffs: z.string().optional(),
+    performance: z.string().optional(),
     lessons: z.string().optional(),
+    future: z.string().optional(),
     state: LifecycleState,
     updatedDate: z.coerce.date().optional(),
   }),
