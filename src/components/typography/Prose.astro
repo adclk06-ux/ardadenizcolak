@@ -10,6 +10,14 @@
     font-size: var(--type-body);
     line-height: var(--line-body);
     color: var(--color-text);
+  }
+
+  /* Text elements: constrained for readability */
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
     max-width: var(--measure-prose);
   }
 
@@ -42,6 +50,7 @@
     margin-bottom: var(--space-1);
   }
 
+  /* Code blocks: full width */
   .prose :global(pre) {
     background: var(--color-surface);
     padding: var(--space-3);
