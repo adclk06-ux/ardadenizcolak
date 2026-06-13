@@ -21,13 +21,3 @@ export type NoteCategory =
   | "Systems"
   | "Design"
   | "Observations";
-
-/** Navigation item — six destinations, one source of truth. */
-export interface NavItem {
-  label: string;
-  href: string;
-  destination: string;
-}
-
-/** Inquiry type — what contact is welcome. */
-export type InquiryType = "Collaboration" | "Consulting" | "Speaking" | "Hiring";

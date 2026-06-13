@@ -3,4 +3,4 @@
  * See siteConfig.ts for the single source of truth.
  */
 
-export { siteConfig as site, pageTitle, fullUrl, metaDescription } from "./siteConfig.js";
+export { pageTitle } from "./siteConfig.js";

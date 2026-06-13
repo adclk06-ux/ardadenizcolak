@@ -3,13 +3,12 @@ import NavItem from "./NavItem.astro";
 import { siteConfig } from "@lib/siteConfig.js";
 
 const currentPath = Astro.url.pathname;
-const navItems = siteConfig.navigation.filter((item) => item.href !== "/");
 ---
 
 <nav aria-label="Primary" class="primary-nav">
   <ul class="nav-list">
     {
-      navItems.map((item) => (
+      siteConfig.navigation.map((item) => (
         <li>
           <NavItem
             href={item.href}

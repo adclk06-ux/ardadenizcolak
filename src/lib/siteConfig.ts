@@ -25,20 +25,13 @@ export const siteConfig = {
   /** Contact */
   email: "hello@ardadenizcolak.dev",
 
-  /** Social — only links that are professionally relevant */
-  social: {
-    github: "https://github.com/ardadenizcolak",
-    linkedin: "https://linkedin.com/in/ardadenizcolak",
-  },
-
-  /** Navigation — six destinations, one source of truth */
+  /** Navigation — five destinations (homepage via logo), one source of truth */
   navigation: [
-    { label: "main", href: "/", destination: "Homepage" },
-    { label: "Work", href: "/work", destination: "Projects" },
-    { label: "Notes", href: "/notes", destination: "Technical Writing" },
-    { label: "Systems", href: "/systems", destination: "Architectures" },
-    { label: "About", href: "/about", destination: "About" },
-    { label: "Contact", href: "/contact", destination: "Contact" },
+    { label: "Work", href: "/work" },
+    { label: "Notes", href: "/notes" },
+    { label: "Systems", href: "/systems" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ] as const,
 
   /** Content categories — seven mutually exclusive intellectual domains */
@@ -77,18 +70,6 @@ export const siteConfig = {
   ] as const,
 } as const;
 
-/** Type-safe navigation item */
-export type NavItem = (typeof siteConfig.navigation)[number];
-
-/** Type-safe category */
-export type Category = (typeof siteConfig.categories)[number];
-
-/** Type-safe lifecycle state */
-export type LifecycleState = (typeof siteConfig.lifecycleStates)[number];
-
-/** Type-safe inquiry type */
-export type InquiryType = (typeof siteConfig.inquiryTypes)[number];
-
 /** Helper: construct full URL from path */
 export function fullUrl(path: string): string {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
@@ -99,9 +80,4 @@ export function fullUrl(path: string): string {
 export function pageTitle(title: string): string {
   if (title === siteConfig.name) return siteConfig.name;
   return `${title} — ${siteConfig.name}`;
-}
-
-/** Helper: construct meta description */
-export function metaDescription(description?: string): string {
-  return description || siteConfig.description;
 }

@@ -2,7 +2,6 @@
 import { siteConfig } from "@lib/siteConfig.js";
 
 const currentPath = Astro.url.pathname;
-const navItems = siteConfig.navigation.filter((item) => item.href !== "/");
 ---
 
 <nav class="mobile-nav" aria-label="Primary mobile">
@@ -16,7 +15,7 @@ const navItems = siteConfig.navigation.filter((item) => item.href !== "/");
   </button>
   <ul class="mobile-list" id="mobile-menu" data-mobile-menu hidden>
     {
-      navItems.map((item) => (
+      siteConfig.navigation.map((item) => (
         <li>
           <a
             href={item.href}
