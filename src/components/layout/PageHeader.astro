@@ -3,7 +3,7 @@ import PrimaryNav from "@components/navigation/PrimaryNav.astro";
 import { siteConfig } from "@lib/siteConfig.js";
 ---
 
-<header class="page-header">
+<header class="page-header" data-nav>
   <div class="container row">
     <a href="/" class="logo" aria-label="Home">
       <span>{siteConfig.name}</span>
@@ -12,10 +12,30 @@ import { siteConfig } from "@lib/siteConfig.js";
   </div>
 </header>
 
+<script>
+  const nav = document.querySelector('[data-nav]');
+  if (nav) {
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
 <style>
   .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     height: var(--header-height);
-    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--duration-fast) ease-out,
+                backdrop-filter var(--duration-fast) ease-out;
+  }
+
+  .page-header.scrolled {
+    background-color: var(--color-background-translucent);
+    backdrop-filter: blur(8px);
   }
 
   .row {
@@ -26,7 +46,7 @@ import { siteConfig } from "@lib/siteConfig.js";
   }
 
   .logo {
-    font-weight: 600;
+    font-weight: var(--weight-medium);
     font-size: var(--type-small);
     letter-spacing: -0.01em;
     text-decoration: none;
@@ -34,6 +54,6 @@ import { siteConfig } from "@lib/siteConfig.js";
   }
 
   .logo:hover {
-    color: var(--color-accent);
+    opacity: 0.7;
   }
 </style>

@@ -9,6 +9,7 @@
     No gradients. No duotone. No color overlays on imagery.
   */
   --color-background: #f8f7f2;
+  --color-background-translucent: rgba(248, 247, 242, 0.85);
   --color-surface: #ffffff;
   --color-text: #111111;
   --color-text-muted: #6b6b6b;

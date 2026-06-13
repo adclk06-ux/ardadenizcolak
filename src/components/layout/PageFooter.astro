@@ -1,11 +1,12 @@
 ---
+import { siteConfig } from "@lib/siteConfig.js";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="page-footer">
   <div class="container">
-    <p class="text-caption text-muted">
-      Built with intention. <a href="/">Home</a>.
-    </p>
+    <p class="footer-text">{siteConfig.name} — Built with intention. © {year}</p>
   </div>
 </footer>
 
@@ -14,5 +15,11 @@
     padding-block: var(--space-5);
     border-top: 1px solid var(--color-border);
     margin-top: auto;
+  }
+
+  .footer-text {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
   }
 </style>

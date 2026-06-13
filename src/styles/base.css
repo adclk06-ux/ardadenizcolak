@@ -23,7 +23,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   line-height: var(--line-display);
   letter-spacing: -0.02em;
 }
@@ -66,5 +66,5 @@ td {
 }
 
 th {
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
 }

@@ -15,16 +15,16 @@ const { href, label, isActive } = Astro.props;
 <style>
   .nav-item {
     font-size: var(--type-small);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     text-decoration: none;
     color: var(--color-text-muted);
     letter-spacing: 0.01em;
-    transition: color var(--duration-fast) ease-out;
+    transition: opacity var(--duration-fast) ease-out;
     padding: var(--space-1) 0;
   }
 
   .nav-item:hover {
-    color: var(--color-text);
+    opacity: 0.65;
   }
 
   .nav-item.active {
