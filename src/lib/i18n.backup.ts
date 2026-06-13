@@ -32,7 +32,6 @@ export const langLabels: Record<Lang, string> = {
 
 export interface Translations {
   nav: {
-    home: string;
     work: string;
     notes: string;
     systems: string;
@@ -60,14 +59,8 @@ export interface Translations {
   };
   contact: {
     title: string;
-    fullName: string;
-    email: string;
-    phone: string;
-    whatsapp: string;
     location: string;
     locationText: string;
-    availability: string;
-    availabilityText: string;
     preferredMethod: string;
     inquiryTypes: string;
     whatToInclude: string;
@@ -108,7 +101,6 @@ export interface Translations {
 
 const tr: Translations = {
   nav: {
-    home: "Ana Sayfa",
     work: "Çalışmalar",
     notes: "Notlar",
     systems: "Sistemler",
@@ -116,7 +108,7 @@ const tr: Translations = {
     contact: "İletişim",
   },
   home: {
-    eyebrow: "Otomasyon Entegrasyonu, Web Site Geliştirme ve Yazılım Çözümleri Uzmanı",
+    eyebrow: "Yazılım Mühendisi",
     headline: "Zamanla güven kazanan yazılımlar geliştiriyorum.",
     description:
       "Ölçeklenebilir sistemler, yapay zeka destekli uygulamalar ve uzun vadeli sürdürülebilirliği öncelik alan dijital ürünler tasarlıyorum.",
@@ -147,14 +139,8 @@ const tr: Translations = {
   },
   contact: {
     title: "İletişim",
-    fullName: "Arda Deniz Çolak",
-    email: "E-posta",
-    phone: "Telefon",
-    whatsapp: "WhatsApp",
     location: "Konum",
-    locationText: "Çekmeköy, İstanbul, Türkiye",
-    availability: "Müsaitlik",
-    availabilityText: "Tam zamanlı çalışmaya uygun",
+    locationText: "İstanbul, Türkiye merkezli. Dünya çapında uzaktan işbirliğine açığım.",
     preferredMethod: "Tercih Edilen Yöntem",
     inquiryTypes: "Sorgu Türleri",
     whatToInclude: "Neler Dahil Olmalı",
@@ -197,7 +183,6 @@ const tr: Translations = {
 
 const en: Translations = {
   nav: {
-    home: "Home",
     work: "Work",
     notes: "Notes",
     systems: "Systems",
@@ -205,7 +190,7 @@ const en: Translations = {
     contact: "Contact",
   },
   home: {
-    eyebrow: "Automation Integration, Website Development and Software Solutions Specialist",
+    eyebrow: "Software Engineer",
     headline: "Building software that earns trust over time.",
     description:
       "I design scalable systems, AI-powered applications, and thoughtful digital products with long-term maintainability in mind.",
@@ -236,14 +221,8 @@ const en: Translations = {
   },
   contact: {
     title: "Contact",
-    fullName: "Arda Deniz Çolak",
-    email: "Email",
-    phone: "Phone",
-    whatsapp: "WhatsApp",
     location: "Location",
-    locationText: "Çekmeköy, İstanbul, Türkiye",
-    availability: "Availability",
-    availabilityText: "Available for full-time work",
+    locationText: "Based in Istanbul, Türkiye. Available for remote collaboration worldwide.",
     preferredMethod: "Preferred Method",
     inquiryTypes: "Inquiry Types",
     whatToInclude: "What to Include",
@@ -286,15 +265,14 @@ const en: Translations = {
 
 const de: Translations = {
   nav: {
-    home: "Startseite",
-    work: "Arbeiten",
+    work: "Arbeit",
     notes: "Notizen",
     systems: "Systeme",
-    about: "Über mich",
+    about: "Über",
     contact: "Kontakt",
   },
   home: {
-    eyebrow: "Spezialist für Automatisierungsintegration, Website-Entwicklung und Softwarelösungen",
+    eyebrow: "Softwareingenieur",
     headline: "Software entwickeln, die im Laufe der Zeit Vertrauen verdient.",
     description:
       "Ich entwerfe skalierbare Systeme, KI-gestützte Anwendungen und durchdachte digitale Produkte mit langfristiger Wartbarkeit.",
@@ -325,14 +303,8 @@ const de: Translations = {
   },
   contact: {
     title: "Kontakt",
-    fullName: "Arda Deniz Çolak",
-    email: "E-Mail",
-    phone: "Telefon",
-    whatsapp: "WhatsApp",
     location: "Standort",
-    locationText: "Çekmeköy, İstanbul, Türkiye",
-    availability: "Verfügbarkeit",
-    availabilityText: "Verfügbar für Vollzeitbeschäftigung",
+    locationText: "Ansässig in Istanbul, Türkiye. Weltweite Remote-Zusammenarbeit möglich.",
     preferredMethod: "Bevorzugte Methode",
     inquiryTypes: "Anfragetypen",
     whatToInclude: "Was beifügen",
@@ -376,15 +348,14 @@ const de: Translations = {
 
 const ar: Translations = {
   nav: {
-    home: "الرئيسية",
-    work: "الأعمال",
-    notes: "الملاحظات",
-    systems: "الأنظمة",
-    about: "نبذة عني",
-    contact: "التواصل",
+    work: "أعمال",
+    notes: "ملاحظات",
+    systems: "أنظمة",
+    about: "نبذة",
+    contact: "تواصل",
   },
   home: {
-    eyebrow: "متخصص في تكامل الأتمتة وتطوير المواقع وحلول البرمجيات",
+    eyebrow: "مهندس برمجيات",
     headline: "أبني برمجيات تكسب الثقة مع مرور الوقت.",
     description:
       "أصمم أنظمة قابلة للتوسع، وتطبيقات مدعومة بالذكاء الاصطناعي، ومنتجات رقمية مدروسة مع الأخذ في الاعتبار الصيانة طويلة المدى.",
@@ -414,15 +385,9 @@ const ar: Translations = {
       "أقرأ الأدبيات الهندسية وعلوم الأنظمة — أوراق البنية التحتية، تصميم اللغات، والقرارات البرمجية التاريخية. أبني مشاريع جانبية لاختبار الأفكار قبل التوصية بها. أتحدث التركية والإنجليزية.",
   },
   contact: {
-    title: "التواصل",
-    fullName: "Arda Deniz Çolak",
-    email: "البريد الإلكتروني",
-    phone: "الهاتف",
-    whatsapp: "WhatsApp",
+    title: "تواصل",
     location: "الموقع",
-    locationText: "Çekmeköy، İstanbul، Türkiye",
-    availability: "التوفر",
-    availabilityText: "متاح للعمل بدوام كامل",
+    locationText: "مقر في إسطنبول، تركيا. متاح للتعاون عن بُعد على مستوى العالم.",
     preferredMethod: "الطريقة المفضلة",
     inquiryTypes: "أنواع الاستفسارات",
     whatToInclude: "ما يجب إدراجه",

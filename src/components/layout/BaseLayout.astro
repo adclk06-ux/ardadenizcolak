@@ -1,7 +1,7 @@
 ---
 import { siteConfig } from "@lib/siteConfig.js";
 import type { Lang } from "@lib/i18n.js";
-import { langDirs } from "@lib/i18n.js";
+import { langDirs, languages, defaultLang } from "@lib/i18n.js";
 
 interface Props {
   title: string;
@@ -18,6 +18,24 @@ const {
 } = Astro.props;
 const canonicalUrl = `${siteConfig.url}${canonicalPath}`;
 const dir = langDirs[lang];
+
+function getNeutralPath(path: string): string {
+  for (const l of languages) {
+    if (l === defaultLang) continue;
+    const prefix = `/${l}`;
+    if (path === prefix) return "/";
+    if (path.startsWith(`${prefix}/`)) return path.slice(prefix.length) || "/";
+  }
+  return path;
+}
+
+function getLangPath(targetLang: Lang, neutralPath: string): string {
+  if (targetLang === defaultLang) return neutralPath;
+  if (neutralPath === "/") return `/${targetLang}`;
+  return `/${targetLang}${neutralPath}`;
+}
+
+const neutralPath = getNeutralPath(canonicalPath);
 ---
 
 <!DOCTYPE html>
@@ -30,6 +48,10 @@ const dir = langDirs[lang];
 
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
+    {languages.map((l) => {
+      const href = `${siteConfig.url}${getLangPath(l, neutralPath)}`;
+      return <link rel="alternate" hreflang={l} href={href} />;
+    })}
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

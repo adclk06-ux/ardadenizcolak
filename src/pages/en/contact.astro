@@ -14,15 +14,39 @@ const tx = t(lang);
     </header>
 
     <section class="contact-section">
-      <h2>{tx.contact.location}</h2>
-      <p>{tx.contact.locationText}</p>
+      <h2>{tx.contact.fullName}</h2>
+      <p class="contact-value">Arda Deniz Çolak</p>
     </section>
 
     <section class="contact-section">
-      <h2>{tx.contact.preferredMethod}</h2>
-      <p class="contact-method">
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      <h2>{tx.contact.email}</h2>
+      <p class="contact-value">
+        <a href="mailto:adclk06@gmail.com">adclk06@gmail.com</a>
       </p>
+    </section>
+
+    <section class="contact-section">
+      <h2>{tx.contact.phone}</h2>
+      <p class="contact-value">
+        <a href="tel:+905445257040">+90 544 525 70 40</a>
+      </p>
+    </section>
+
+    <section class="contact-section">
+      <h2>{tx.contact.whatsapp}</h2>
+      <p class="contact-value">
+        <a href="https://wa.me/905445257040" target="_blank" rel="noopener">+90 544 525 70 40</a>
+      </p>
+    </section>
+
+    <section class="contact-section">
+      <h2>{tx.contact.location}</h2>
+      <p class="contact-value">{tx.contact.locationText}</p>
+    </section>
+
+    <section class="contact-section">
+      <h2>{tx.contact.availability}</h2>
+      <p class="contact-value">{tx.contact.availabilityText}</p>
     </section>
 
     <section class="contact-section">
@@ -95,16 +119,21 @@ const tx = t(lang);
     max-width: var(--measure-prose);
   }
 
-  .contact-method a {
+  .contact-value {
     font-size: var(--type-body);
     line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+  }
+
+  .contact-value a {
     font-weight: var(--weight-medium);
     color: var(--color-accent);
     text-decoration: none;
     transition: color var(--duration-fast) ease-out;
   }
 
-  .contact-method a:hover {
+  .contact-value a:hover {
     color: var(--color-accent-hover);
   }
 
