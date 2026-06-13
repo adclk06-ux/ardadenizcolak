@@ -1,5 +1,6 @@
 ---
 import PrimaryNav from "@components/navigation/PrimaryNav.astro";
+import MobileNav from "@components/navigation/MobileNav.astro";
 import { siteConfig } from "@lib/siteConfig.js";
 ---
 
@@ -9,6 +10,7 @@ import { siteConfig } from "@lib/siteConfig.js";
       <span>{siteConfig.name}</span>
     </a>
     <PrimaryNav />
+    <MobileNav />
   </div>
 </header>
 

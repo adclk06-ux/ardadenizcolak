@@ -1,153 +1,36 @@
 ---
 import Base from "@layouts/Base.astro";
 import { siteConfig } from "@lib/siteConfig.js";
-import { getPublishedWork, getPublishedNotes, getPublishedSystems } from "@lib/content.js";
-
-const workEntries = await getPublishedWork();
-const notesEntries = await getPublishedNotes();
-const systemsEntries = await getPublishedSystems();
-
-const selectedWork = workEntries.slice(0, 4);
-
-const notesByCategory = notesEntries.reduce<Record<string, typeof notesEntries>>((acc, entry) => {
-  const cat = entry.data.category;
-  if (!acc[cat]) acc[cat] = [];
-  acc[cat].push(entry);
-  return acc;
-}, {});
 ---
 
 <Base title={siteConfig.name} description={siteConfig.description}>
-  <div class="homepage">
-    <!-- Hero -->
-    <section class="hero">
-      <p class="eyebrow">{siteConfig.title}</p>
-      <h1 class="headline">{siteConfig.tagline}</h1>
-      <p class="subheading">{siteConfig.description}</p>
-      <a href="#work" class="hero-link">Selected Work <span aria-hidden="true">↓</span></a>
-    </section>
-
-    <!-- Manifesto -->
-    <section class="manifesto">
-      <p>{siteConfig.manifesto}</p>
-    </section>
-
-    <!-- Selected Work Preview -->
-    <section id="work" class="preview">
-      <header class="preview-header">
-        <h2>Selected Work</h2>
-      </header>
-      {selectedWork.length > 0 ? (
-        <ul class="work-list">
-          {selectedWork.map((entry) => (
-            <li class="work-item">
-              <a href={`/work/${entry.slug}`} class="work-link">
-                <div class="work-meta">
-                  <span class="work-year">{entry.data.year}</span>
-                  <span class="work-status">{entry.data.status}</span>
-                </div>
-                <h3 class="work-title">{entry.data.title}</h3>
-                <p class="work-summary">{entry.data.summary}</p>
-                <div class="work-tech">
-                  {entry.data.technologies.map((tech: string) => (
-                    <span class="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <span class="work-cta">Case Study →</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="empty">No published work yet.</p>
-      )}
-    </section>
-
-    <!-- Notes Preview -->
-    <section class="preview">
-      <header class="preview-header">
-        <h2>Notes</h2>
-        <a href="/notes" class="preview-link">View all →</a>
-      </header>
-      {notesEntries.length > 0 ? (
-        <div class="notes-grid">
-          {Object.entries(notesByCategory).map(([category, entries]) => (
-            <div class="notes-category">
-              <h3>{category}</h3>
-              <ul>
-                {entries.slice(0, 3).map((entry) => (
-                  <li>
-                    <a href={`/notes/${entry.slug}`}>{entry.data.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p class="empty">Technical writing and engineering essays.</p>
-      )}
-    </section>
-
-    <!-- Systems Preview -->
-    <section class="preview">
-      <header class="preview-header">
-        <h2>Systems</h2>
-        <a href="/systems" class="preview-link">View all →</a>
-      </header>
-      {systemsEntries.length > 0 ? (
-        <ul class="system-list">
-          {systemsEntries.slice(0, 6).map((entry) => (
-            <li class="system-item">
-              <a href={`/systems/${entry.slug}`} class="system-link">
-                <span class="system-category">{entry.data.category}</span>
-                <span class="system-title">{entry.data.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul class="system-placeholder">
-          {["Authentication", "Caching", "Deployment", "Naming", "AI Pipelines", "Folder Structures", "Infrastructure"].map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      )}
-    </section>
-  </div>
+  <section class="hero">
+    <h1 class="name">{siteConfig.name}</h1>
+    <p class="position">{siteConfig.tagline}</p>
+    <ul class="philosophy">
+      {siteConfig.philosophy.map((sentence) => (
+        <li>{sentence}</li>
+      ))}
+    </ul>
+  </section>
 </Base>
 
 <style>
-  .homepage {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  /* ─── Hero ─── */
   .hero {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: var(--space-5);
+    gap: var(--space-6);
     min-height: calc(100vh - var(--header-height));
     padding-inline: var(--space-5);
+    padding-block: var(--space-7);
     max-width: var(--max-width);
     margin-inline: auto;
     width: 100%;
   }
 
-  .eyebrow {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-medium);
-    color: var(--color-text-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .headline {
+  .name {
     font-size: var(--type-display);
     line-height: var(--line-display);
     font-weight: var(--weight-semibold);
@@ -155,285 +38,37 @@ const notesByCategory = notesEntries.reduce<Record<string, typeof notesEntries>>
     color: var(--color-text);
   }
 
-  .subheading {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    color: var(--color-text-muted);
-    max-width: var(--measure-body);
-  }
-
-  .hero-link {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    font-weight: var(--weight-medium);
-    text-decoration: none;
-    color: var(--color-accent);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .hero-link:hover {
-    color: var(--color-accent-hover);
-  }
-
-  /* ─── Manifesto ─── */
-  .manifesto {
-    padding-block: var(--space-9);
-    padding-inline: var(--space-5);
-    max-width: var(--max-width);
-    margin-inline: auto;
-    width: 100%;
-    text-align: center;
-  }
-
-  .manifesto p {
+  .position {
     font-size: var(--type-hero);
     line-height: var(--line-hero);
     font-weight: var(--weight-regular);
     color: var(--color-text);
     max-width: var(--measure-prose);
-    margin-inline: auto;
   }
 
-  /* ─── Previews ─── */
-  .preview {
-    padding-block: var(--space-7);
-    padding-inline: var(--space-5);
-    max-width: var(--max-width);
-    margin-inline: auto;
-    width: 100%;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .preview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: var(--space-6);
-  }
-
-  .preview-header h2 {
-    font-size: var(--type-section);
-    line-height: var(--line-section);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text);
-  }
-
-  .preview-link {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-medium);
-    text-decoration: none;
-    color: var(--color-text-muted);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .preview-link:hover {
-    color: var(--color-text);
-  }
-
-  /* ─── Work List ─── */
-  .work-list {
+  .philosophy {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .work-item {
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-5);
-  }
-
-  .work-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .work-link:hover .work-title {
-    color: var(--color-accent);
-  }
-
-  .work-meta {
-    display: flex;
-    gap: var(--space-3);
-    margin-bottom: var(--space-2);
-  }
-
-  .work-year {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    color: var(--color-text-muted);
-  }
-
-  .work-status {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    color: var(--color-accent);
-  }
-
-  .work-title {
-    font-size: var(--type-section);
-    line-height: var(--line-section);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .work-summary {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    color: var(--color-text-muted);
+    gap: var(--space-2);
     margin-top: var(--space-2);
+  }
+
+  .philosophy li {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
     max-width: var(--measure-body);
-  }
-
-  .work-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-3);
-  }
-
-  .tech-tag {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    color: var(--color-text-muted);
-    padding: var(--space-1) var(--space-2);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-  }
-
-  .work-cta {
-    display: inline-block;
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-medium);
-    color: var(--color-accent);
-    margin-top: var(--space-3);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .work-link:hover .work-cta {
-    color: var(--color-accent-hover);
-  }
-
-  /* ─── Notes Preview ─── */
-  .notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-6);
-  }
-
-  .notes-category h3 {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-medium);
-    color: var(--color-text-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-3);
-  }
-
-  .notes-category ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .notes-category a {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    font-weight: var(--weight-medium);
-    text-decoration: none;
-    color: var(--color-text);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .notes-category a:hover {
-    color: var(--color-accent);
-  }
-
-  /* ─── Systems Preview ─── */
-  .system-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: var(--space-3);
-  }
-
-  .system-item {
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-3);
-  }
-
-  .system-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .system-link:hover .system-title {
-    color: var(--color-accent);
-  }
-
-  .system-category {
-    display: block;
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    color: var(--color-accent);
-    margin-bottom: var(--space-1);
-  }
-
-  .system-title {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    font-weight: var(--weight-medium);
-    color: var(--color-text);
-    transition: color var(--duration-fast) ease-out;
-  }
-
-  .system-placeholder {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: var(--space-3);
-  }
-
-  .system-placeholder li {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    color: var(--color-text-muted);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .empty {
-    font-size: var(--type-body);
-    line-height: var(--line-body);
-    color: var(--color-text-muted);
-    font-style: italic;
   }
 
   @media (max-width: 639px) {
     .hero {
-      padding-top: var(--space-7);
-      padding-bottom: var(--space-7);
+      gap: var(--space-5);
     }
 
-    .headline {
+    .position {
       font-size: var(--type-section);
       line-height: var(--line-section);
-    }
-
-    .manifesto p {
-      font-size: var(--type-section);
-      line-height: var(--line-section);
-    }
-
-    .notes-grid {
-      grid-template-columns: 1fr;
     }
   }
 </style>

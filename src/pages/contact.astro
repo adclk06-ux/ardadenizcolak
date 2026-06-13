@@ -1,10 +1,118 @@
 ---
 import Base from "@layouts/Base.astro";
-import Display from "@components/typography/Display.astro";
-import Body from "@components/typography/Body.astro";
+import { siteConfig } from "@lib/siteConfig.js";
 ---
 
 <Base title="Contact">
-  <Display as="h1">Contact</Display>
-  <Body as="p">Reach out for collaboration, consulting, or hiring inquiries.</Body>
+  <div class="contact-page">
+    <header>
+      <h1>Contact</h1>
+    </header>
+
+    <section class="contact-section">
+      <h2>Preferred Method</h2>
+      <p class="contact-method">
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </p>
+    </section>
+
+    <section class="contact-section">
+      <h2>Inquiry Types</h2>
+      <ul class="inquiry-list">
+        {siteConfig.inquiryTypes.map((type) => (
+          <li>{type}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="contact-section">
+      <h2>What to Include</h2>
+      <p>Context, timeline, and scope. Specificity helps both parties. I respond to clear, bounded requests faster than open-ended introductions.</p>
+    </section>
+
+    <section class="contact-section">
+      <h2>Response Time</h2>
+      <p>{siteConfig.responseTime}</p>
+    </section>
+
+    <section class="contact-section">
+      <h2>Not Welcome</h2>
+      <ul class="not-welcome-list">
+        {siteConfig.notWelcome.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
+  </div>
 </Base>
+
+<style>
+  .contact-page {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  header {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .contact-section {
+    margin-bottom: var(--space-6);
+  }
+
+  .contact-section h2 {
+    font-size: var(--type-section);
+    line-height: var(--line-section);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-section p {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+  }
+
+  .contact-method a {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease-out;
+  }
+
+  .contact-method a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .inquiry-list,
+  .not-welcome-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .inquiry-list li,
+  .not-welcome-list li {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+  }
+</style>

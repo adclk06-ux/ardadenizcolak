@@ -9,9 +9,15 @@ export const siteConfig = {
   name: "Arda Deniz Çolak",
   title: "Software Engineer",
   tagline: "Building software that earns trust over time.",
-  manifesto: "Clarity is not simplicity. It is the result of deliberate engineering.",
   description:
-    "Senior engineer specializing in scalable products, AI applications, automation systems, and long-term infrastructure.",
+    "I design scalable systems, AI-powered applications, and modern web experiences with long-term thinking.",
+  philosophy: [
+    "I build systems that outlast their builder.",
+    "I prefer explicit trade-offs over hidden complexity.",
+    "I measure decisions by what remains true in five years.",
+    "I write code for the engineer who inherits it.",
+    "I ship early, document always, and iterate with evidence.",
+  ],
 
   /** Domain */
   url: "https://ardadenizcolak.dev",

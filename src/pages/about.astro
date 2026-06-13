@@ -1,10 +1,97 @@
 ---
 import Base from "@layouts/Base.astro";
-import Display from "@components/typography/Display.astro";
-import Body from "@components/typography/Body.astro";
+import { siteConfig } from "@lib/siteConfig.js";
 ---
 
 <Base title="About">
-  <Display as="h1">About</Display>
-  <Body as="p">Professional context and background.</Body>
+  <div class="about-page">
+    <header>
+      <h1>About</h1>
+    </header>
+
+    <section class="about-section">
+      <h2>Principles</h2>
+      <ul class="principle-list">
+        {siteConfig.philosophy.map((principle) => (
+          <li>{principle}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2>Current Focus</h2>
+      <p>Building AI-powered applications and automation systems. Working with TypeScript, Astro, and modern web infrastructure. Exploring how language models change product engineering workflows.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Working Style</h2>
+      <p>I work best in small teams with clear ownership. I prefer async communication with intentional sync points. I make decisions under ambiguity by identifying the reversible choice and shipping it. I optimize for long-term maintainability over short-term velocity.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Tooling</h2>
+      <p>Languages: TypeScript, Python, Go. Frontend: Astro, React, vanilla CSS. Backend: Node.js, edge functions, serverless. Infrastructure: Vercel, AWS, Docker. AI: OpenAI API, LangChain, vector databases. I choose tools based on team context and project constraints, not personal preference.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Outside of Work</h2>
+      <p>I read engineering and systems literature — infrastructure papers, language design, and historical software decisions. I build side projects to test ideas before recommending them. I speak Turkish and English.</p>
+    </section>
+  </div>
 </Base>
+
+<style>
+  .about-page {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  header {
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h1 {
+    font-size: var(--type-display);
+    line-height: var(--line-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .about-section {
+    margin-bottom: var(--space-7);
+  }
+
+  .about-section h2 {
+    font-size: var(--type-section);
+    line-height: var(--line-section);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .about-section p {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+  }
+
+  .principle-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .principle-list li {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+  }
+</style>

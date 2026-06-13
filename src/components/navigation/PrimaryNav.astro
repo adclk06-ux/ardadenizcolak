@@ -3,21 +3,18 @@ import NavItem from "./NavItem.astro";
 import { siteConfig } from "@lib/siteConfig.js";
 
 const currentPath = Astro.url.pathname;
+const navItems = siteConfig.navigation.filter((item) => item.href !== "/");
 ---
 
-<nav aria-label="Primary">
+<nav aria-label="Primary" class="primary-nav">
   <ul class="nav-list">
     {
-      siteConfig.navigation.map((item) => (
+      navItems.map((item) => (
         <li>
           <NavItem
             href={item.href}
             label={item.label}
-            isActive={
-              item.href === "/"
-                ? currentPath === "/"
-                : currentPath.startsWith(item.href)
-            }
+            isActive={currentPath.startsWith(item.href)}
           />
         </li>
       ))
@@ -26,6 +23,10 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <style>
+  .primary-nav {
+    display: block;
+  }
+
   .nav-list {
     display: flex;
     align-items: center;
@@ -34,7 +35,7 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 639px) {
-    .nav-list {
+    .primary-nav {
       display: none;
     }
   }
