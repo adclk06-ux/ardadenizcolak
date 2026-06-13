@@ -11,9 +11,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const canonicalPath = Astro.url.pathname;
 ---
 
-<BaseLayout title={pageTitle(title)} description={description}>
+<BaseLayout title={pageTitle(title)} description={description} canonicalPath={canonicalPath}>
   <div class="site-wrapper">
     <PageHeader />
     <Main>

@@ -12,11 +12,17 @@ export interface ProjectFrontMatter {
   summary: string;
   year: number;
   status: string;
+  role?: string;
+  duration?: string;
   technologies: string[];
   featured: boolean;
   order: number;
   repository?: string;
   demo?: string;
+  problem?: string;
+  solution?: string;
+  tradeoffs?: string;
+  lessons?: string;
   state: LifecycleState;
   updatedDate?: Date;
 }

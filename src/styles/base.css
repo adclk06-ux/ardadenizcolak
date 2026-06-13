@@ -24,20 +24,26 @@ h2,
 h3,
 h4 {
   font-weight: var(--weight-semibold);
-  line-height: var(--line-display);
-  letter-spacing: -0.02em;
 }
 
 h1 {
   font-size: var(--type-display);
+  line-height: var(--line-display);
 }
 
 h2 {
   font-size: var(--type-section);
+  line-height: var(--line-section);
 }
 
 h3 {
   font-size: var(--type-body);
+  line-height: var(--line-body);
+}
+
+h4 {
+  font-size: var(--type-small);
+  line-height: var(--line-small);
 }
 
 hr {

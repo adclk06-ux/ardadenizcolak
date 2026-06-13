@@ -9,8 +9,11 @@ import type { LifecycleState } from "./metadata.js";
 /** Front matter for a system architecture entry. */
 export interface SystemFrontMatter {
   title: string;
+  domain?: string;
   category: string;
   complexity: "low" | "medium" | "high";
+  dependencies: string[];
+  references: string[];
   state: LifecycleState;
   updatedAt?: Date;
 }
