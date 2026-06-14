@@ -13,10 +13,10 @@ export const siteConfig = {
     "I design scalable systems, AI-powered applications, and thoughtful digital products with long-term maintainability in mind.",
 
   /** Domain */
-  url: "https://ardadenizcolak.dev",
+  url: "https://ardadenizcolak.com",
 
   /** Contact */
-  email: "hello@ardadenizcolak.dev",
+  email: "adclk06@gmail.com",
 
   /** Navigation — five destinations (homepage via logo), one source of truth */
   navigation: [

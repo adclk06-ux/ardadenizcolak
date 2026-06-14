@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ardadenizcolak.dev/sitemap.xml
+Sitemap: https://ardadenizcolak.com/sitemap.xml
