@@ -21,8 +21,8 @@ const tx = t(lang);
           <li class="system-item">
             <a href={`/ar/systems/${entry.slug}`} class="system-link">
               <div class="system-meta">
-                <span class="system-category">{entry.data.category}</span>
-                <span class="system-complexity">{entry.data.complexity}</span>
+                <span class="system-category">{tx.maps.category[entry.data.category] ?? entry.data.category}</span>
+                <span class="system-complexity">{tx.maps.complexity[entry.data.complexity] ?? entry.data.complexity}</span>
               </div>
               <h2 class="system-title">{entry.data.title}</h2>
             </a>

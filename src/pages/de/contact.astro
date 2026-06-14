@@ -1,6 +1,5 @@
 ---
 import Base from "@layouts/Base.astro";
-import { siteConfig } from "@lib/siteConfig.js";
 import { t } from "@lib/i18n.js";
 
 const lang = "de";
@@ -50,9 +49,9 @@ const tx = t(lang);
     </section>
 
     <section class="contact-section">
-      <h2>{tx.contact.inquiryTypes}</h2>
+      <h2>{tx.contact.inquiryTypesLabel}</h2>
       <ul class="inquiry-list">
-        {siteConfig.inquiryTypes.map((type) => (
+        {tx.contact.inquiryTypes.map((type) => (
           <li>{type}</li>
         ))}
       </ul>
@@ -64,14 +63,14 @@ const tx = t(lang);
     </section>
 
     <section class="contact-section">
-      <h2>{tx.contact.responseTime}</h2>
-      <p>{siteConfig.responseTime}</p>
+      <h2>{tx.contact.responseTimeLabel}</h2>
+      <p>{tx.contact.responseTime}</p>
     </section>
 
     <section class="contact-section">
-      <h2>{tx.contact.notWelcome}</h2>
+      <h2>{tx.contact.notWelcomeLabel}</h2>
       <ul class="not-welcome-list">
-        {siteConfig.notWelcome.map((item) => (
+        {tx.contact.notWelcome.map((item) => (
           <li>{item}</li>
         ))}
       </ul>

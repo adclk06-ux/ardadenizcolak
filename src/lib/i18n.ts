@@ -30,6 +30,12 @@ export const langLabels: Record<Lang, string> = {
   ar: "العربية",
 };
 
+export interface TranslationMaps {
+  category: Record<string, string>;
+  complexity: Record<string, string>;
+  status: Record<string, string>;
+}
+
 export interface Translations {
   nav: {
     home: string;
@@ -39,6 +45,7 @@ export interface Translations {
     about: string;
     contact: string;
   };
+  maps: TranslationMaps;
   home: {
     eyebrow: string;
     headline: string;
@@ -69,11 +76,14 @@ export interface Translations {
     availability: string;
     availabilityText: string;
     preferredMethod: string;
-    inquiryTypes: string;
+    inquiryTypesLabel: string;
+    inquiryTypes: string[];
     whatToInclude: string;
     whatToIncludeText: string;
+    responseTimeLabel: string;
     responseTime: string;
-    notWelcome: string;
+    notWelcomeLabel: string;
+    notWelcome: string[];
   };
   work: {
     title: string;
@@ -107,6 +117,20 @@ export interface Translations {
 }
 
 const tr: Translations = {
+  maps: {
+    category: {
+      Engineering: "Mühendislik",
+      Architecture: "Mimari",
+      Performance: "Performans",
+      AI: "Yapay Zekâ",
+      Systems: "Sistemler",
+      Design: "Tasarım",
+      Observations: "Gözlemler",
+      "Decision Log": "Karar Günlüğü",
+    },
+    complexity: { low: "Düşük", medium: "Orta", high: "Yüksek" },
+    status: { Shipped: "Yayınlandı", Active: "Aktif", Archived: "Arşivlendi" },
+  },
   nav: {
     home: "Ana Sayfa",
     work: "Çalışmalar",
@@ -156,12 +180,21 @@ const tr: Translations = {
     availability: "Müsaitlik",
     availabilityText: "Tam zamanlı çalışmaya uygun",
     preferredMethod: "Tercih Edilen Yöntem",
-    inquiryTypes: "Sorgu Türleri",
+    inquiryTypesLabel: "Sorgu Türleri",
+    inquiryTypes: ["İş Birliği", "Danışmanlık", "Konuşma", "İstihdam"],
     whatToInclude: "Neler Dahil Olmalı",
     whatToIncludeText:
-      "Bağlam, zaman çerçevesi ve kapsam. Spesifiklik her iki tarafa da yardımcı olur. Açık uçlu tanıtımlara göre net, sınırlı isteklere daha hızlı yanıt veririm.",
-    responseTime: "Yanıt Süresi",
-    notWelcome: "Kabul Edilmeyenler",
+      "Bağlam, zaman planı ve kapsam. Netlik iki taraf için de süreci kolaylaştırır. Açık ve sınırları belirlenmiş taleplere daha hızlı yanıt veririm.",
+    responseTimeLabel: "Yanıt Süresi",
+    responseTime:
+      "Anlamlı talepler için 48 saat içinde, daha karmaşık istekler için 72 saat içinde yanıt veririm.",
+    notWelcomeLabel: "Kabul Edilmeyenler",
+    notWelcome: [
+      "Spam içerikler",
+      "Bağlam içermeyen belirsiz “tanışalım” mesajları",
+      "Ücretsiz spekülatif çalışma talepleri",
+      "Belirtilen uzmanlık alanlarım dışındaki işe alım teklifleri",
+    ],
   },
   work: {
     title: "Çalışmalar",
@@ -196,6 +229,20 @@ const tr: Translations = {
 };
 
 const en: Translations = {
+  maps: {
+    category: {
+      Engineering: "Engineering",
+      Architecture: "Architecture",
+      Performance: "Performance",
+      AI: "AI",
+      Systems: "Systems",
+      Design: "Design",
+      Observations: "Observations",
+      "Decision Log": "Decision Log",
+    },
+    complexity: { low: "Low", medium: "Medium", high: "High" },
+    status: { Shipped: "Shipped", Active: "Active", Archived: "Archived" },
+  },
   nav: {
     home: "Home",
     work: "Work",
@@ -245,12 +292,21 @@ const en: Translations = {
     availability: "Availability",
     availabilityText: "Available for full-time work",
     preferredMethod: "Preferred Method",
-    inquiryTypes: "Inquiry Types",
+    inquiryTypesLabel: "Inquiry Types",
+    inquiryTypes: ["Collaboration", "Consulting", "Speaking", "Hiring"],
     whatToInclude: "What to Include",
     whatToIncludeText:
-      "Context, timeline, and scope. Specificity helps both parties. I respond to clear, bounded requests faster than open-ended introductions.",
-    responseTime: "Response Time",
-    notWelcome: "Not Welcome",
+      "Context, timeline and scope. Specificity helps both sides. Clear, well-bounded requests receive faster replies.",
+    responseTimeLabel: "Response Time",
+    responseTime:
+      "I usually respond within 48 hours for meaningful inquiries and within 72 hours for more complex requests.",
+    notWelcomeLabel: "Not Welcome",
+    notWelcome: [
+      "Spam",
+      "Vague “let’s connect” requests without context",
+      "Unpaid speculative work",
+      "Recruiter pitches for roles outside stated domains",
+    ],
   },
   work: {
     title: "Work",
@@ -285,6 +341,20 @@ const en: Translations = {
 };
 
 const de: Translations = {
+  maps: {
+    category: {
+      Engineering: "Engineering",
+      Architecture: "Architektur",
+      Performance: "Performance",
+      AI: "KI",
+      Systems: "Systeme",
+      Design: "Design",
+      Observations: "Beobachtungen",
+      "Decision Log": "Entscheidungsprotokoll",
+    },
+    complexity: { low: "Niedrig", medium: "Mittel", high: "Hoch" },
+    status: { Shipped: "Veröffentlicht", Active: "Aktiv", Archived: "Archiviert" },
+  },
   nav: {
     home: "Startseite",
     work: "Arbeiten",
@@ -334,12 +404,21 @@ const de: Translations = {
     availability: "Verfügbarkeit",
     availabilityText: "Verfügbar für Vollzeitbeschäftigung",
     preferredMethod: "Bevorzugte Methode",
-    inquiryTypes: "Anfragetypen",
+    inquiryTypesLabel: "Anfragetypen",
+    inquiryTypes: ["Zusammenarbeit", "Beratung", "Vortrag", "Einstellung"],
     whatToInclude: "Was beifügen",
     whatToIncludeText:
-      "Kontext, Zeitrahmen und Umfang. Konkretheit hilft beiden Parteien. Ich reagiere auf klare, begrenzte Anfragen schneller als auf offene Einleitungen.",
-    responseTime: "Antwortzeit",
-    notWelcome: "Nicht erwünscht",
+      "Kontext, Zeitrahmen und Umfang. Präzision hilft beiden Seiten. Klare und gut abgegrenzte Anfragen erhalten schneller eine Antwort.",
+    responseTimeLabel: "Antwortzeit",
+    responseTime:
+      "Auf sinnvolle Anfragen antworte ich in der Regel innerhalb von 48 Stunden, bei komplexeren Anliegen innerhalb von 72 Stunden.",
+    notWelcomeLabel: "Nicht erwünscht",
+    notWelcome: [
+      "Spam",
+      "Unklare „Lass uns vernetzen“-Anfragen ohne Kontext",
+      "Unbezahlte spekulative Arbeitsanfragen",
+      "Recruiting-Angebote außerhalb der genannten Fachbereiche",
+    ],
   },
   work: {
     title: "Arbeit",
@@ -375,6 +454,20 @@ const de: Translations = {
 };
 
 const ar: Translations = {
+  maps: {
+    category: {
+      Engineering: "هندسة",
+      Architecture: "بنية",
+      Performance: "أداء",
+      AI: "ذكاء اصطناعي",
+      Systems: "أنظمة",
+      Design: "تصميم",
+      Observations: "ملاحظات",
+      "Decision Log": "سجل القرارات",
+    },
+    complexity: { low: "منخفض", medium: "متوسط", high: "عالي" },
+    status: { Shipped: "منشور", Active: "نشط", Archived: "مؤرشف" },
+  },
   nav: {
     home: "الرئيسية",
     work: "الأعمال",
@@ -424,12 +517,21 @@ const ar: Translations = {
     availability: "التوفر",
     availabilityText: "متاح للعمل بدوام كامل",
     preferredMethod: "الطريقة المفضلة",
-    inquiryTypes: "أنواع الاستفسارات",
+    inquiryTypesLabel: "أنواع الاستفسارات",
+    inquiryTypes: ["تعاون", "استشارة", "محاضرة", "توظيف"],
     whatToInclude: "ما يجب إدراجه",
     whatToIncludeText:
-      "السياق والجدول الزمني والنطاق. التحدد يساعد الطرفين. أستجيب للطلبات الواضحة والمحددة أسرع من المقدمات المفتوحة.",
-    responseTime: "وقت الاستجابة",
-    notWelcome: "غير مرحب به",
+      "السياق والجدول الزمني ونطاق العمل. يساعد الوضوح كلا الطرفين، وتحصل الطلبات المحددة جيدًا على رد أسرع.",
+    responseTimeLabel: "وقت الاستجابة",
+    responseTime:
+      "عادةً أرد خلال 48 ساعة على الطلبات الواضحة، وخلال 72 ساعة على الطلبات الأكثر تعقيدًا.",
+    notWelcomeLabel: "غير مرحب به",
+    notWelcome: [
+      "رسائل مزعجة",
+      "طلبات تواصل عامة وغير واضحة من دون سياق",
+      "طلبات عمل تجريبية غير مدفوعة",
+      "عروض توظيف خارج مجالات التخصص المذكورة",
+    ],
   },
   work: {
     title: "أعمال",

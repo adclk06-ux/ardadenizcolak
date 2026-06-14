@@ -48,20 +48,6 @@ export const siteConfig = {
     "referenced",
     "deprecated",
   ] as const,
-
-  /** Response expectations — set and honored */
-  responseTime: "48 hours for meaningful inquiries. 72 hours for complex requests.",
-
-  /** Inquiry types — what contact is welcome */
-  inquiryTypes: ["Collaboration", "Consulting", "Speaking", "Hiring"] as const,
-
-  /** What is not welcome */
-  notWelcome: [
-    "Spam",
-    'Vague "let\'s connect" requests without context',
-    "Unpaid speculative work",
-    "Recruiter pitches for roles outside stated domains",
-  ] as const,
 } as const;
 
 /** Helper: construct full URL from path */

@@ -30,7 +30,7 @@ const tx = t(lang);
       <ul>
         {categories.map((cat) => (
           <li>
-            <a href={`#${cat.toLowerCase()}`}>{cat}</a>
+            <a href={`#${cat.toLowerCase()}`}>{tx.maps.category[cat] ?? cat}</a>
           </li>
         ))}
       </ul>
@@ -41,7 +41,7 @@ const tx = t(lang);
         const catNotes = notesByCategory[cat] || [];
         return (
           <section id={cat.toLowerCase()} class="category-section">
-            <h2>{cat}</h2>
+            <h2>{tx.maps.category[cat] ?? cat}</h2>
             {catNotes.length > 0 ? (
               <ul class="note-list">
                 {catNotes.map((entry) => (

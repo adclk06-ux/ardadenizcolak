@@ -22,7 +22,7 @@ const tx = t(lang);
             <a href={`/work/${entry.slug}`} class="project-link">
               <div class="project-meta">
                 <span class="project-year">{entry.data.year}</span>
-                <span class="project-status">{entry.data.status}</span>
+                <span class="project-status">{tx.maps.status[entry.data.status] ?? entry.data.status}</span>
               </div>
               <h2 class="project-title">{entry.data.title}</h2>
               <p class="project-summary">{entry.data.summary}</p>
