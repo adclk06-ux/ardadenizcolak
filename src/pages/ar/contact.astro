@@ -1,5 +1,6 @@
 ---
 import Base from "@layouts/Base.astro";
+import ContactForm from "@components/ContactForm.astro";
 import { t } from "@lib/i18n.js";
 
 const lang = "ar";
@@ -46,6 +47,11 @@ const tx = t(lang);
     <section class="contact-section">
       <h2>{tx.contact.availability}</h2>
       <p class="contact-value">{tx.contact.availabilityText}</p>
+    </section>
+
+    <section class="contact-section form-section">
+      <h2>{tx.form.submit}</h2>
+      <ContactForm lang={lang} />
     </section>
 
     <section class="contact-section">

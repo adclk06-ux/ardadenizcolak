@@ -98,6 +98,18 @@ export interface Translations {
     title: string;
     subtitle: string;
   };
+  form: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    submit: string;
+    sending: string;
+    success: string;
+    error: string;
+    required: string;
+    invalidEmail: string;
+  };
   notFound: {
     title: string;
     description: string;
@@ -208,6 +220,18 @@ const tr: Translations = {
   systems: {
     title: "Sistemler",
     subtitle: "Altyapı, otomasyon ve operasyonel kararlar.",
+  },
+  form: {
+    name: "İsim",
+    email: "E-posta",
+    subject: "Konu",
+    message: "Mesaj",
+    submit: "Gönder",
+    sending: "Gönderiliyor...",
+    success: "Mesajınız başarıyla gönderildi.",
+    error: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+    required: "Bu alan zorunludur.",
+    invalidEmail: "Lütfen geçerli bir e-posta adresi girin.",
   },
   notFound: {
     title: "Sayfa Bulunamadı",
@@ -321,6 +345,18 @@ const en: Translations = {
     title: "Systems",
     subtitle: "Infrastructure, automation, and operational decisions.",
   },
+  form: {
+    name: "Name",
+    email: "Email",
+    subject: "Subject",
+    message: "Message",
+    submit: "Send",
+    sending: "Sending...",
+    success: "Your message has been sent successfully.",
+    error: "The message could not be sent. Please try again.",
+    required: "This field is required.",
+    invalidEmail: "Please enter a valid email address.",
+  },
   notFound: {
     title: "Page Not Found",
     description: "This page does not exist. It may have moved, or it may never have existed.",
@@ -432,6 +468,18 @@ const de: Translations = {
   systems: {
     title: "Systeme",
     subtitle: "Infrastruktur, Automatisierung und operative Entscheidungen.",
+  },
+  form: {
+    name: "Name",
+    email: "E-Mail",
+    subject: "Betreff",
+    message: "Nachricht",
+    submit: "Senden",
+    sending: "Wird gesendet...",
+    success: "Ihre Nachricht wurde erfolgreich gesendet.",
+    error: "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    required: "Dieses Feld ist erforderlich.",
+    invalidEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
   },
   notFound: {
     title: "Seite nicht gefunden",
@@ -545,6 +593,18 @@ const ar: Translations = {
   systems: {
     title: "أنظمة",
     subtitle: "البنية التحتية، الأتمتة، والقرارات التشغيلية.",
+  },
+  form: {
+    name: "الاسم",
+    email: "البريد الإلكتروني",
+    subject: "الموضوع",
+    message: "الرسالة",
+    submit: "إرسال",
+    sending: "جاري الإرسال...",
+    success: "تم إرسال رسالتك بنجاح.",
+    error: "تعذر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+    required: "هذا الحقل مطلوب.",
+    invalidEmail: "يرجى إدخال عنوان بريد إلكتروني صالح.",
   },
   notFound: {
     title: "الصفحة غير موجودة",
