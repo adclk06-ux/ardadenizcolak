@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
 import Prose from "@components/typography/Prose.astro";
 import { t } from "@lib/i18n.js";
+import { localizedTitle } from "@lib/contentI18n.js";
 
 export async function getStaticPaths() {
   const entries = await getCollection("systems");
@@ -22,14 +23,14 @@ const lang = "en";
 const tx = t(lang);
 ---
 
-<Base title={entry.data.title} lang={lang}>
+<Base title={localizedTitle(lang, "systems", entry.slug, entry.data.title)} lang={lang}>
   <article class="system-article">
     <header class="system-header">
       <div class="system-meta">
         <span class="system-category">{tx.maps.category[entry.data.category] ?? entry.data.category}</span>
         <span class="system-complexity">{tx.maps.complexity[entry.data.complexity] ?? entry.data.complexity}</span>
       </div>
-      <h1>{entry.data.title}</h1>
+      <h1>{localizedTitle(lang, "systems", entry.slug, entry.data.title)}</h1>
     </header>
     <Prose>
       <Content />

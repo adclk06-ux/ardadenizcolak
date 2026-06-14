@@ -3,6 +3,7 @@ import PrimaryNav from "@components/navigation/PrimaryNav.astro";
 import MobileNav from "@components/navigation/MobileNav.astro";
 import LanguageSwitcher from "@components/navigation/LanguageSwitcher.astro";
 import { siteConfig } from "@lib/siteConfig.js";
+import { t } from "@lib/i18n.js";
 import type { Lang } from "@lib/i18n.js";
 
 interface Props {
@@ -10,11 +11,12 @@ interface Props {
 }
 
 const { lang = "tr" } = Astro.props;
+const tx = t(lang);
 ---
 
 <header class="page-header" data-nav>
   <div class="container row">
-    <a href="/" class="logo" aria-label="Home">
+    <a href="/" class="logo" aria-label={tx.a11y.home}>
       <span>{siteConfig.name}</span>
     </a>
     <div class="nav-group">

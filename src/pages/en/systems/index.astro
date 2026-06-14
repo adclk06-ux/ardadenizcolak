@@ -2,6 +2,7 @@
 import Base from "@layouts/Base.astro";
 import { getPublishedSystems } from "@lib/content.js";
 import { t } from "@lib/i18n.js";
+import { localizedTitle } from "@lib/contentI18n.js";
 
 const entries = await getPublishedSystems();
 const lang = "en";
@@ -24,7 +25,7 @@ const tx = t(lang);
                 <span class="system-category">{tx.maps.category[entry.data.category] ?? entry.data.category}</span>
                 <span class="system-complexity">{tx.maps.complexity[entry.data.complexity] ?? entry.data.complexity}</span>
               </div>
-              <h2 class="system-title">{entry.data.title}</h2>
+              <h2 class="system-title">{localizedTitle(lang, "systems", entry.slug, entry.data.title)}</h2>
             </a>
           </li>
         ))

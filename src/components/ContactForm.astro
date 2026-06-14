@@ -95,12 +95,12 @@ const accessKey = import.meta.env.PUBLIC_CONTACT_FORM_ACCESS_KEY ?? "";
     }
 
     const tx = {
-      required: (form as HTMLElement).dataset.txRequired || "This field is required.",
-      invalidEmail: (form as HTMLElement).dataset.txInvalidEmail || "Please enter a valid email address.",
-      sending: (form as HTMLElement).dataset.txSending || "Sending...",
-      submit: (form as HTMLElement).dataset.txSubmit || "Send",
-      success: (form as HTMLElement).dataset.txSuccess || "Your message has been sent successfully.",
-      error: (form as HTMLElement).dataset.txError || "The message could not be sent. Please try again.",
+      required: (form as HTMLElement).dataset.txRequired || "",
+      invalidEmail: (form as HTMLElement).dataset.txInvalidEmail || "",
+      sending: (form as HTMLElement).dataset.txSending || "",
+      submit: (form as HTMLElement).dataset.txSubmit || "",
+      success: (form as HTMLElement).dataset.txSuccess || "",
+      error: (form as HTMLElement).dataset.txError || "",
     };
 
     function showError(field: HTMLInputElement | HTMLTextAreaElement, msg: string) {

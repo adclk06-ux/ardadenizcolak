@@ -3,6 +3,7 @@ import Base from "@layouts/Base.astro";
 import { getPublishedNotes } from "@lib/content.js";
 import { siteConfig } from "@lib/siteConfig.js";
 import { t } from "@lib/i18n.js";
+import { localizedTitle, localizedExcerpt } from "@lib/contentI18n.js";
 
 const entries = await getPublishedNotes();
 
@@ -26,7 +27,7 @@ const tx = t(lang);
       <p class="subtitle">{tx.notes.subtitle}</p>
     </header>
 
-    <nav class="categories" aria-label="Categories">
+    <nav class="categories" aria-label={tx.a11y.categories}>
       <ul>
         {categories.map((cat) => (
           <li>
@@ -47,8 +48,8 @@ const tx = t(lang);
                 {catNotes.map((entry) => (
                   <li class="note-item">
                     <a href={`/de/notes/${entry.slug}`} class="note-link">
-                      <span class="note-title">{entry.data.title}</span>
-                      <span class="note-excerpt">{entry.data.excerpt}</span>
+                      <span class="note-title">{localizedTitle(lang, "notes", entry.slug, entry.data.title)}</span>
+                      <span class="note-excerpt">{localizedExcerpt(lang, "notes", entry.slug, entry.data.excerpt)}</span>
                     </a>
                   </li>
                 ))}

@@ -166,6 +166,12 @@ export interface Translations {
     title: string;
     description: string;
   };
+  a11y: {
+    home: string;
+    primaryNav: string;
+    language: string;
+    categories: string;
+  };
 }
 
 const tr: Translations = {
@@ -179,6 +185,10 @@ const tr: Translations = {
       Design: "Tasarım",
       Observations: "Gözlemler",
       "Decision Log": "Karar Günlüğü",
+      Identity: "Kimlik",
+      Infrastructure: "Altyapı",
+      Operations: "Operasyonlar",
+      Organization: "Organizasyon",
     },
     complexity: { low: "Düşük", medium: "Orta", high: "Yüksek" },
     status: { Shipped: "Yayınlandı", Active: "Aktif", Archived: "Arşivlendi" },
@@ -501,6 +511,12 @@ const tr: Translations = {
     description:
       "İstanbul Çekmeköy merkezli web site yapımı, otomasyon entegrasyonu ve yazılım çözümleri. Kurumsal web siteleri, iş süreci otomasyonları ve özel yazılım sistemleri geliştiriyorum.",
   },
+  a11y: {
+    home: "Ana Sayfa",
+    primaryNav: "Birincil navigasyon",
+    language: "Dil",
+    categories: "Kategoriler",
+  },
 };
 
 const en: Translations = {
@@ -514,6 +530,10 @@ const en: Translations = {
       Design: "Design",
       Observations: "Observations",
       "Decision Log": "Decision Log",
+      Identity: "Identity",
+      Infrastructure: "Infrastructure",
+      Operations: "Operations",
+      Organization: "Organization",
     },
     complexity: { low: "Low", medium: "Medium", high: "High" },
     status: { Shipped: "Shipped", Active: "Active", Archived: "Archived" },
@@ -838,6 +858,12 @@ const en: Translations = {
     description:
       "Website development, automation integration and software solutions based in Istanbul. I build corporate websites, business automation systems and custom software solutions.",
   },
+  a11y: {
+    home: "Home",
+    primaryNav: "Primary navigation",
+    language: "Language",
+    categories: "Categories",
+  },
 };
 
 const de: Translations = {
@@ -851,6 +877,10 @@ const de: Translations = {
       Design: "Design",
       Observations: "Beobachtungen",
       "Decision Log": "Entscheidungsprotokoll",
+      Identity: "Identität",
+      Infrastructure: "Infrastruktur",
+      Operations: "Betrieb",
+      Organization: "Organisation",
     },
     complexity: { low: "Niedrig", medium: "Mittel", high: "Hoch" },
     status: { Shipped: "Veröffentlicht", Active: "Aktiv", Archived: "Archiviert" },
@@ -1181,6 +1211,12 @@ const de: Translations = {
     description:
       "Website-Entwicklung, Automatisierungsintegration und Softwarelösungen aus Istanbul. Ich entwickle Unternehmenswebsites, Geschäftsautomatisierungen und individuelle Softwaresysteme.",
   },
+  a11y: {
+    home: "Startseite",
+    primaryNav: "Hauptnavigation",
+    language: "Sprache",
+    categories: "Kategorien",
+  },
 };
 
 const ar: Translations = {
@@ -1194,6 +1230,10 @@ const ar: Translations = {
       Design: "تصميم",
       Observations: "ملاحظات",
       "Decision Log": "سجل القرارات",
+      Identity: "الهوية",
+      Infrastructure: "البنية التحتية",
+      Operations: "العمليات",
+      Organization: "التنظيم",
     },
     complexity: { low: "منخفض", medium: "متوسط", high: "عالي" },
     status: { Shipped: "منشور", Active: "نشط", Archived: "مؤرشف" },
@@ -1509,6 +1549,12 @@ const ar: Translations = {
     title: "Arda Deniz Çolak | تطوير المواقع وتكامل الأتمتة وحلول البرمجيات",
     description:
       "خدمات تطوير المواقع وتكامل الأتمتة وحلول البرمجيات في إسطنبول. أطور مواقع احترافية وأنظمة أتمتة للأعمال وحلول برمجية مخصصة.",
+  },
+  a11y: {
+    home: "الرئيسية",
+    primaryNav: "التنقل الرئيسي",
+    language: "اللغة",
+    categories: "التصنيفات",
   },
 };
 

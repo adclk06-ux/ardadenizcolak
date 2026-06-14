@@ -20,7 +20,7 @@ const navItems = [
 ] as const;
 ---
 
-<nav aria-label="Primary" class="primary-nav">
+<nav aria-label={tx.a11y.primaryNav} class="primary-nav">
   <ul class="nav-list">
     {
       navItems.map((item) => (

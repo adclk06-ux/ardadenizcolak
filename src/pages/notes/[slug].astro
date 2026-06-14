@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
 import Prose from "@components/typography/Prose.astro";
 import { t } from "@lib/i18n.js";
+import { localizedTitle, localizedExcerpt } from "@lib/contentI18n.js";
 
 export async function getStaticPaths() {
   const entries = await getCollection("notes");
@@ -22,15 +23,15 @@ const lang = "tr";
 const tx = t(lang);
 ---
 
-<Base title={entry.data.title} lang={lang}>
+<Base title={localizedTitle(lang, "notes", entry.slug, entry.data.title)} lang={lang}>
   <article class="note-article">
     <header class="note-header">
       <div class="note-meta">
         <span class="note-category">{tx.maps.category[entry.data.category] ?? entry.data.category}</span>
         <span class="note-date">{entry.data.publishedAt.toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" })}</span>
       </div>
-      <h1>{entry.data.title}</h1>
-      <p class="note-excerpt">{entry.data.excerpt}</p>
+      <h1>{localizedTitle(lang, "notes", entry.slug, entry.data.title)}</h1>
+      <p class="note-excerpt">{localizedExcerpt(lang, "notes", entry.slug, entry.data.excerpt)}</p>
     </header>
     <Prose>
       <Content />

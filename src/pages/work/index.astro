@@ -2,6 +2,7 @@
 import Base from "@layouts/Base.astro";
 import { getPublishedWork } from "@lib/content.js";
 import { t } from "@lib/i18n.js";
+import { localizedTitle, localizedSummary } from "@lib/contentI18n.js";
 
 const entries = await getPublishedWork();
 const lang = "tr";
@@ -24,8 +25,8 @@ const tx = t(lang);
                 <span class="project-year">{entry.data.year}</span>
                 <span class="project-status">{tx.maps.status[entry.data.status] ?? entry.data.status}</span>
               </div>
-              <h2 class="project-title">{entry.data.title}</h2>
-              <p class="project-summary">{entry.data.summary}</p>
+              <h2 class="project-title">{localizedTitle(lang, "work", entry.slug, entry.data.title)}</h2>
+              <p class="project-summary">{localizedSummary(lang, "work", entry.slug, entry.data.summary)}</p>
               <div class="project-tech">
                 {entry.data.technologies.map((tech: string) => (
                   <span class="tech-tag">{tech}</span>
