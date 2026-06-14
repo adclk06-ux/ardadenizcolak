@@ -49,11 +49,6 @@ const tx = t(lang);
       <p class="contact-value">{tx.contact.availabilityText}</p>
     </section>
 
-    <section class="contact-section form-section">
-      <h2>{tx.form.submit}</h2>
-      <ContactForm lang={lang} />
-    </section>
-
     <section class="contact-section">
       <h2>{tx.contact.inquiryTypesLabel}</h2>
       <ul class="inquiry-list">
@@ -80,6 +75,12 @@ const tx = t(lang);
           <li>{item}</li>
         ))}
       </ul>
+    </section>
+
+    <section class="contact-section form-section">
+      <h2>{tx.contact.ctaHeading}</h2>
+      <p class="cta-subtext">{tx.contact.ctaSubtext}</p>
+      <ContactForm lang={lang} />
     </section>
   </div>
 </Base>
@@ -156,5 +157,13 @@ const tx = t(lang);
     line-height: var(--line-body);
     color: var(--color-text-muted);
     max-width: var(--measure-prose);
+  }
+
+  .cta-subtext {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-prose);
+    margin-bottom: var(--space-4);
   }
 </style>

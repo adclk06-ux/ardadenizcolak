@@ -84,6 +84,8 @@ export interface Translations {
     responseTime: string;
     notWelcomeLabel: string;
     notWelcome: string[];
+    ctaHeading: string;
+    ctaSubtext: string;
   };
   work: {
     title: string;
@@ -207,6 +209,8 @@ const tr: Translations = {
       "Ücretsiz spekülatif çalışma talepleri",
       "Belirtilen uzmanlık alanlarım dışındaki işe alım teklifleri",
     ],
+    ctaHeading: "Başlamaya hazır mısınız?",
+    ctaSubtext: "Kısa bir mesaj bırakın, en kısa sürede size dönüş yapayım.",
   },
   work: {
     title: "Çalışmalar",
@@ -331,6 +335,8 @@ const en: Translations = {
       "Unpaid speculative work",
       "Recruiter pitches for roles outside stated domains",
     ],
+    ctaHeading: "Ready to start?",
+    ctaSubtext: "Leave a short message and I’ll get back to you as soon as possible.",
   },
   work: {
     title: "Work",
@@ -455,6 +461,9 @@ const de: Translations = {
       "Unbezahlte spekulative Arbeitsanfragen",
       "Recruiting-Angebote außerhalb der genannten Fachbereiche",
     ],
+    ctaHeading: "Bereit zu starten?",
+    ctaSubtext:
+      "Hinterlassen Sie eine kurze Nachricht, ich melde mich so schnell wie möglich zurück.",
   },
   work: {
     title: "Arbeit",
@@ -580,6 +589,8 @@ const ar: Translations = {
       "طلبات عمل تجريبية غير مدفوعة",
       "عروض توظيف خارج مجالات التخصص المذكورة",
     ],
+    ctaHeading: "هل أنت مستعد للبدء؟",
+    ctaSubtext: "اترك رسالة قصيرة وسأرد عليك في أقرب وقت ممكن.",
   },
   work: {
     title: "أعمال",
