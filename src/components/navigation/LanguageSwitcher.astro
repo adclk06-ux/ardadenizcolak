@@ -1,5 +1,5 @@
 ---
-import { languages, langNames, langLabels, defaultLang } from "@lib/i18n.js";
+import { languages, langNames, defaultLang } from "@lib/i18n.js";
 import type { Lang } from "@lib/i18n.js";
 
 interface Props {
@@ -28,54 +28,7 @@ function getLangPath(targetLang: Lang, neutralPath: string): string {
 const neutralPath = getNeutralPath(currentPath);
 ---
 
-{/* Desktop dropdown */}
-<div class="language-switcher desktop-only" data-lang-switcher>
-  <button
-    class="lang-trigger"
-    aria-haspopup="true"
-    aria-expanded="false"
-    aria-controls="lang-menu"
-    data-lang-trigger
-    type="button"
-  >
-    <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M2 12h20"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>
-    <span class="lang-label">{langLabels[lang]}</span>
-    <span class="lang-code" aria-hidden="true">{langNames[lang]}</span>
-    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </button>
-
-  <ul class="lang-menu" id="lang-menu" role="menu" data-lang-menu hidden>
-    {
-      languages.map((l) => {
-        const href = getLangPath(l, neutralPath);
-        const isActive = l === lang;
-        return (
-          <li role="none">
-            <a
-              href={href}
-              class={isActive ? "lang-option active" : "lang-option"}
-              hreflang={l}
-              role="menuitem"
-              aria-current={isActive ? "true" : undefined}
-            >
-              <span class="option-label">{langLabels[l]}</span>
-              <span class="option-code">{langNames[l]}</span>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
-</div>
-
-{/* Mobile segmented */}
-<nav class="lang-segmented mobile-only" aria-label="Language">
+<nav class="lang-segmented" aria-label="Language">
   {languages.map((l) => {
     const href = getLangPath(l, neutralPath);
     const isActive = l === lang;
@@ -92,180 +45,7 @@ const neutralPath = getNeutralPath(currentPath);
   })}
 </nav>
 
-<script>
-  const switcher = document.querySelector("[data-lang-switcher]");
-  const trigger = document.querySelector("[data-lang-trigger]") as HTMLButtonElement | null;
-  const menu = document.querySelector("[data-lang-menu]") as HTMLElement | null;
-  if (switcher && trigger && menu) {
-    trigger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const expanded = trigger.getAttribute("aria-expanded") === "true";
-      trigger.setAttribute("aria-expanded", String(!expanded));
-      menu.hidden = expanded;
-      switcher.classList.toggle("open", !expanded);
-    });
-    document.addEventListener("click", () => {
-      trigger.setAttribute("aria-expanded", "false");
-      menu.hidden = true;
-      switcher.classList.remove("open");
-    });
-  }
-</script>
-
 <style>
-  .desktop-only {
-    display: block;
-  }
-
-  .mobile-only {
-    display: none;
-  }
-
-  @media (max-width: 639px) {
-    .desktop-only {
-      display: none;
-    }
-
-    .mobile-only {
-      display: block;
-    }
-  }
-
-  /* Desktop dropdown styles */
-  .language-switcher {
-    position: relative;
-  }
-
-  .lang-trigger {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-1) var(--space-3);
-    background: none;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-medium);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    transition: border-color var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
-  }
-
-  .lang-trigger:hover {
-    border-color: var(--color-text-muted);
-    color: var(--color-text);
-  }
-
-  .lang-trigger:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-
-  .globe-icon {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-  }
-
-  .lang-label {
-    display: none;
-  }
-
-  @media (min-width: 640px) {
-    .lang-label {
-      display: inline;
-    }
-  }
-
-  .lang-code {
-    font-weight: var(--weight-semibold);
-    color: var(--color-text);
-    opacity: 0.7;
-  }
-
-  .chevron-icon {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-    transition: transform var(--duration-fast) ease-out;
-  }
-
-  .language-switcher.open .chevron-icon {
-    transform: rotate(180deg);
-  }
-
-  .lang-menu {
-    list-style: none;
-    position: absolute;
-    top: calc(100% + var(--space-1));
-    right: 0;
-    min-width: 160px;
-    padding: var(--space-2);
-    background-color: var(--color-background-translucent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    z-index: 100;
-  }
-
-  .lang-menu[hidden] {
-    display: none;
-  }
-
-  .lang-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3);
-    padding: var(--space-2) var(--space-3);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: background-color var(--duration-fast) ease-out;
-  }
-
-  .lang-option:hover,
-  .lang-option:focus-visible {
-    background-color: var(--color-surface);
-  }
-
-  .lang-option:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: -2px;
-  }
-
-  .lang-option.active {
-    background-color: var(--color-surface);
-  }
-
-  .lang-option.active .option-label {
-    color: var(--color-accent);
-  }
-
-  .lang-option.active .option-code {
-    color: var(--color-accent);
-    opacity: 0.8;
-  }
-
-  .option-label {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    color: var(--color-text);
-  }
-
-  .option-code {
-    font-size: var(--type-small);
-    line-height: var(--line-small);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text-muted);
-  }
-
-  /* Mobile segmented styles */
   .lang-segmented {
     display: flex;
     align-items: center;
@@ -279,8 +59,8 @@ const neutralPath = getNeutralPath(currentPath);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 8px;
-    font-size: 11px;
+    padding: 5px 10px;
+    font-size: 12px;
     line-height: 1;
     font-weight: var(--weight-semibold);
     text-decoration: none;
@@ -303,6 +83,13 @@ const neutralPath = getNeutralPath(currentPath);
   .lang-seg.active {
     background-color: var(--color-text);
     color: var(--color-surface);
+  }
+
+  @media (max-width: 639px) {
+    .lang-seg {
+      padding: 4px 8px;
+      font-size: 11px;
+    }
   }
 
   @media (max-width: 374px) {
