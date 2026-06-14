@@ -25,7 +25,7 @@ const accessKey = import.meta.env.PUBLIC_CONTACT_FORM_ACCESS_KEY ?? "";
   novalidate
 >
   <input type="hidden" name="access_key" value={accessKey} />
-  <input type="hidden" name="from_name" value="Arda Deniz Çolak Portfolio" />
+  <input type="hidden" name="from_name" value="Arda Deniz Çolak Website" />
   <input type="text" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
 
   <div class="form-group">
@@ -139,14 +139,23 @@ const accessKey = import.meta.env.PUBLIC_CONTACT_FORM_ACCESS_KEY ?? "";
       e.preventDefault();
       if (!validate()) return;
 
-      const originalText = submitBtn.textContent || "";
-      submitBtn.disabled = true;
-      submitBtn.textContent = tx.sending;
       statusEl.textContent = "";
       statusEl.className = "form-status";
 
+      if (!accessKeyInput?.value) {
+        statusEl.textContent = tx.error;
+        statusEl.classList.add("error");
+        return;
+      }
+
+      const originalText = submitBtn.textContent || "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = tx.sending;
+
       try {
         const data = new FormData(form as HTMLFormElement);
+        const emailField = form.querySelector('input[name="email"]') as HTMLInputElement | null;
+        if (emailField?.value) data.set("replyto", emailField.value);
         const res = await fetch((form as HTMLFormElement).action, {
           method: "POST",
           body: data,
