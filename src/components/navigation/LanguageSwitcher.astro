@@ -28,7 +28,8 @@ function getLangPath(targetLang: Lang, neutralPath: string): string {
 const neutralPath = getNeutralPath(currentPath);
 ---
 
-<div class="language-switcher" data-lang-switcher>
+{/* Desktop dropdown */}
+<div class="language-switcher desktop-only" data-lang-switcher>
   <button
     class="lang-trigger"
     aria-haspopup="true"
@@ -73,6 +74,24 @@ const neutralPath = getNeutralPath(currentPath);
   </ul>
 </div>
 
+{/* Mobile segmented */}
+<nav class="lang-segmented mobile-only" aria-label="Language">
+  {languages.map((l) => {
+    const href = getLangPath(l, neutralPath);
+    const isActive = l === lang;
+    return (
+      <a
+        href={href}
+        class={isActive ? "lang-seg active" : "lang-seg"}
+        hreflang={l}
+        aria-current={isActive ? "true" : undefined}
+      >
+        {langNames[l]}
+      </a>
+    );
+  })}
+</nav>
+
 <script>
   const switcher = document.querySelector("[data-lang-switcher]");
   const trigger = document.querySelector("[data-lang-trigger]") as HTMLButtonElement | null;
@@ -94,9 +113,27 @@ const neutralPath = getNeutralPath(currentPath);
 </script>
 
 <style>
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  @media (max-width: 639px) {
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+  }
+
+  /* Desktop dropdown styles */
   .language-switcher {
     position: relative;
-    display: block;
   }
 
   .lang-trigger {
@@ -226,5 +263,52 @@ const neutralPath = getNeutralPath(currentPath);
     line-height: var(--line-small);
     font-weight: var(--weight-semibold);
     color: var(--color-text-muted);
+  }
+
+  /* Mobile segmented styles */
+  .lang-segmented {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-surface);
+    overflow: hidden;
+  }
+
+  .lang-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    color: var(--color-text-muted);
+    transition: background-color var(--duration-fast) ease-out, color var(--duration-fast) ease-out;
+    white-space: nowrap;
+  }
+
+  .lang-seg:hover {
+    color: var(--color-text);
+  }
+
+  .lang-seg:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lang-seg.active {
+    background-color: var(--color-text);
+    color: var(--color-surface);
+  }
+
+  @media (max-width: 374px) {
+    .lang-seg {
+      padding: 3px 6px;
+      font-size: 10px;
+    }
   }
 </style>
