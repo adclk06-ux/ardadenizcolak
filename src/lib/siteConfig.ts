@@ -52,6 +52,7 @@ export const siteConfig = {
 
 /** Helper: construct full URL from path */
 export function fullUrl(path: string): string {
+  if (path === "/" || path === "") return siteConfig.url;
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${siteConfig.url}${cleanPath}`;
 }

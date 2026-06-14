@@ -16,7 +16,7 @@ const {
   canonicalPath = "",
   lang = "tr",
 } = Astro.props;
-const canonicalUrl = `${siteConfig.url}${canonicalPath}`;
+const canonicalUrl = canonicalPath === "/" ? siteConfig.url : `${siteConfig.url}${canonicalPath}`;
 const dir = langDirs[lang];
 
 function getNeutralPath(path: string): string {
@@ -49,7 +49,8 @@ const neutralPath = getNeutralPath(canonicalPath);
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
     {languages.map((l) => {
-      const href = `${siteConfig.url}${getLangPath(l, neutralPath)}`;
+      const langPath = getLangPath(l, neutralPath);
+      const href = langPath === "/" ? siteConfig.url : `${siteConfig.url}${langPath}`;
       return <link rel="alternate" hreflang={l} href={href} />;
     })}
 
