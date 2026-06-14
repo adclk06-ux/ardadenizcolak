@@ -60,5 +60,6 @@ export function fullUrl(path: string): string {
 /** Helper: construct page title */
 export function pageTitle(title: string): string {
   if (title === siteConfig.name) return siteConfig.name;
+  if (title.startsWith(siteConfig.name)) return title;
   return `${title} — ${siteConfig.name}`;
 }

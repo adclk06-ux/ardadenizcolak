@@ -165,6 +165,7 @@ export interface Translations {
     ariaLabel: string;
   };
   meta: {
+    title: string;
     description: string;
   };
 }
@@ -442,8 +443,9 @@ const tr: Translations = {
     ariaLabel: "Birincil mobil",
   },
   meta: {
+    title: "Arda Deniz Çolak | Web Site Yapımı, Otomasyon Entegrasyonu ve Yazılım Çözümleri",
     description:
-      "Ölçeklenebilir sistemler, yapay zeka destekli uygulamalar ve uzun vadeli sürdürülebilirliği öncelik alan dijital ürünler tasarlıyorum.",
+      "İstanbul Çekmeköy merkezli web site yapımı, otomasyon entegrasyonu ve yazılım çözümleri. Kurumsal web siteleri, iş süreci otomasyonları ve özel yazılım sistemleri geliştiriyorum.",
   },
 };
 
@@ -722,8 +724,9 @@ const en: Translations = {
     ariaLabel: "Primary mobile",
   },
   meta: {
+    title: "Arda Deniz Çolak | Website Development, Automation Integration and Software Solutions",
     description:
-      "I design scalable systems, AI-powered applications, and thoughtful digital products with long-term maintainability in mind.",
+      "Website development, automation integration and software solutions based in Istanbul. I build corporate websites, business automation systems and custom software solutions.",
   },
 };
 
@@ -1008,8 +1011,9 @@ const de: Translations = {
     ariaLabel: "Primär mobil",
   },
   meta: {
+    title: "Arda Deniz Çolak | Website-Entwicklung, Automatisierungsintegration und Softwarelösungen",
     description:
-      "Ich entwerfe skalierbare Systeme, KI-gestützte Anwendungen und durchdachte digitale Produkte mit langfristiger Wartbarkeit.",
+      "Website-Entwicklung, Automatisierungsintegration und Softwarelösungen aus Istanbul. Ich entwickle Unternehmenswebsites, Geschäftsautomatisierungen und individuelle Softwaresysteme.",
   },
 };
 
@@ -1280,8 +1284,9 @@ const ar: Translations = {
     ariaLabel: "التنقل الرئيسي",
   },
   meta: {
+    title: "Arda Deniz Çolak | تطوير المواقع وتكامل الأتمتة وحلول البرمجيات",
     description:
-      "أصمم أنظمة قابلة للتوسع، وتطبيقات مدعومة بالذكاء الاصطناعي، ومنتجات رقمية مدروسة مع الأخذ في الاعتبار الصيانة طويلة المدى.",
+      "خدمات تطوير المواقع وتكامل الأتمتة وحلول البرمجيات في إسطنبول. أطور مواقع احترافية وأنظمة أتمتة للأعمال وحلول برمجية مخصصة.",
   },
 };
 

@@ -36,6 +36,55 @@ function getLangPath(targetLang: Lang, neutralPath: string): string {
 }
 
 const neutralPath = getNeutralPath(canonicalPath);
+const isHome = neutralPath === "/" || neutralPath === "";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Arda Deniz Çolak",
+  jobTitle: "Otomasyon Entegrasyonu, Web Site Geliştirme ve Yazılım Çözümleri Uzmanı",
+  email: "adclk06@gmail.com",
+  telephone: "+90 544 525 70 40",
+  url: siteConfig.url,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Çekmeköy",
+    addressRegion: "İstanbul",
+    addressCountry: "TR",
+  },
+};
+
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Arda Deniz Çolak",
+  image: `${siteConfig.url}/favicon.svg`,
+  url: siteConfig.url,
+  email: "adclk06@gmail.com",
+  telephone: "+90 544 525 70 40",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Çekmeköy",
+    addressRegion: "İstanbul",
+    addressCountry: "TR",
+  },
+  areaServed: ["İstanbul", "Çekmeköy", "Türkiye"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Hizmetler",
+    itemListElement: [
+      "Web Site Yapımı",
+      "Otomasyon Entegrasyonu",
+      "Yazılım Çözümleri",
+      "Özel Yazılım Geliştirme",
+      "Kurumsal Web Sitesi",
+    ].map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service },
+    })),
+  },
+};
 ---
 
 <!DOCTYPE html>
@@ -53,6 +102,7 @@ const neutralPath = getNeutralPath(canonicalPath);
       const href = langPath === "/" ? siteConfig.url : `${siteConfig.url}${langPath}`;
       return <link rel="alternate" hreflang={l} href={href} />;
     })}
+    <link rel="alternate" hreflang="x-default" href={neutralPath === "/" ? siteConfig.url : `${siteConfig.url}${neutralPath}`} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -63,6 +113,11 @@ const neutralPath = getNeutralPath(canonicalPath);
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify(professionalServiceSchema)} />
+    )}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <style is:global>
