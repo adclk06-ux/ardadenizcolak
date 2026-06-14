@@ -94,15 +94,13 @@ export interface Translations {
   about: {
     title: string;
     principles: string;
-    principlesList: string[];
+    principlesList: { title: string; description: string }[];
     currentFocus: string;
     currentFocusText: string;
     workingStyle: string;
-    workingStyleText: string;
-    tooling: string;
-    toolingText: string;
-    outsideWork: string;
-    outsideWorkText: string;
+    workingStyleList: { title: string; description: string }[];
+    background: string;
+    backgroundList: { title: string; description: string }[];
   };
   contact: {
     title: string;
@@ -354,26 +352,82 @@ const tr: Translations = {
   },
   about: {
     title: "Hakkımda",
-    principles: "Prensipler",
+    principles: "İlkeler",
     principlesList: [
-      "Geliştiricisinden daha uzun ömürlü sistemler kurarım.",
-      "Gizli karmaşaya karşı açık tercihleri tercih ederim.",
-      "Kararlarımı beş yıl sonra da geçerli olacak şekilde değerlendiririm.",
-      "Kodu, onu devralacak mühendis için yazarım.",
-      "Erken teslim eder, her zaman belgelerim ve kanıtla iterasyon yaparım.",
+      {
+        title: "Ömürlük Sistemler",
+        description:
+          "Kodun ömrü, geliştiricisinin projede kalma süresinden uzun olmalıdır.",
+      },
+      {
+        title: "Netlik",
+        description:
+          'Karmaşık "sihirli" çözümler yerine, açık ve sürdürülebilir yaklaşımları tercih ederim.',
+      },
+      {
+        title: "5 Yıllık Perspektif",
+        description:
+          "Bugünü kurtaran değil, beş yıl sonra da ayakta kalan kararlar alırım.",
+      },
+      {
+        title: "Sonraki Mühendise Saygı",
+        description:
+          "Her satırı, benden sonra kodu devralacak meslektaşıma rehber olacak şekilde yazarım.",
+      },
+      {
+        title: "Disiplin",
+        description:
+          "Erken teslimata, eksiksiz dokümantasyona ve veriye dayalı iterasyona inanırım.",
+      },
     ],
     currentFocus: "Mevcut Odak",
     currentFocusText:
-      "Yapay zeka destekli uygulamalar ve otomasyon sistemleri geliştiriyorum. TypeScript, Astro ve modern web altyapısı ile çalışıyorum. Dil modellerinin ürün mühendisliği iş akışlarını nasıl değiştirdiğini keşfediyorum.",
-    workingStyle: "Çalışma Tarzı",
-    workingStyleText:
-      "Net sahiplik alanları olan küçük ekiplerde en verimliyim. Asenkron iletişimi ve bilinçli senkron noktaları tercih ederim. Belirsizlik altında, geri alınabilir seçeneği belirleyip teslim ederek karar alırım. Uzun vadeli sürdürülebilirliği kısa vadeli hıza tercih ederim.",
-    tooling: "Araçlar",
-    toolingText:
-      "Diller: TypeScript, Python, Go. Frontend: Astro, React, vanilla CSS. Backend: Node.js, edge functions, serverless. Altyapı: Vercel, AWS, Docker. AI: OpenAI API, LangChain, vektör veritabanları. Araçları kişisel tercihime değil, ekip bağlamına ve proje kısıtlarına göre seçerim.",
-    outsideWork: "İş Dışında",
-    outsideWorkText:
-      "Mühendislik ve sistemler literatürü okurum — altyapı makaleleri, dil tasarımı ve tarihsel yazılım kararları. Önermeden önce fikirleri test etmek için yan projeler geliştiririm. Türkçe ve İngilizce konuşurum.",
+      "Yapay zeka destekli uygulamalar ve akıllı otomasyon sistemleri geliştirmeye odaklanıyorum. TypeScript ve Astro gibi modern web altyapılarını kullanarak yüksek performanslı projeler inşa ediyor; büyük dil modellerinin (LLM) ürün mühendisliği ve yazılım geliştirme iş akışlarını nasıl dönüştürdüğünü aktif olarak deneyimliyorum.",
+    workingStyle: "Çalışma Biçimi",
+    workingStyleList: [
+      {
+        title: "Sorumluluk ve Otonomi",
+        description:
+          "Net sorumluluk alanlarına sahip, küçük ve çevik ekiplerde en yüksek verimle çalışırım.",
+      },
+      {
+        title: "Etkin İletişim",
+        description:
+          "Sürekli toplantılar yerine asenkron iletişimi ve derin odaklanma sağlayan, bilinçli senkronize noktalarını tercih ederim.",
+      },
+      {
+        title: "Belirsizlik Yönetimi",
+        description:
+          "Belirsiz durumlarda geri alınabilir (reversible) kararları hızla seçer, teslimat yapar ve süreci ilerletirim.",
+      },
+      {
+        title: "Sürdürülebilir Hız",
+        description:
+          "Geçici ve acele çözümler yerine, uzun vadeli sürdürülebilirliği ve teknik borçsuz ilerlemeyi odakta tutarım.",
+      },
+    ],
+    background: "Arka Plan",
+    backgroundList: [
+      {
+        title: "Akademik Arka Plan",
+        description:
+          "Kadir Has Üniversitesi'nde Ekonomi eğitimime devam ediyor, finansal sistemlerin mantığı ile yazılım dünyasını harmanlıyorum.",
+      },
+      {
+        title: "Mühendislik Literatürü",
+        description:
+          "İş dışında altyapı makaleleri, programlama dili tasarımları ve tarihsel yazılım kararları üzerine okumalar yapmayı severim.",
+      },
+      {
+        title: "Deneysel Geliştirme",
+        description:
+          "Bir fikri teoride savunmadan önce, onu mutlaka yan projeler (side-projects) geliştirerek mutfakta test ederim.",
+      },
+      {
+        title: "Diller",
+        description: "Türkçe (Anadil), İngilizce (Profesyonel).",
+      },
+    ],
   },
   contact: {
     title: "İletişim",
@@ -635,26 +689,82 @@ const en: Translations = {
   },
   about: {
     title: "About",
-    principles: "Principles",
+    principles: "Engineering Principles",
     principlesList: [
-      "I build systems that outlast their builder.",
-      "I prefer explicit trade-offs over hidden complexity.",
-      "I measure decisions by what remains true in five years.",
-      "I write code for the engineer who inherits it.",
-      "I ship early, document always, and iterate with evidence.",
+      {
+        title: "Long-Lived Systems",
+        description:
+          "Code should outlive the time its developer spends on the project.",
+      },
+      {
+        title: "Clarity",
+        description:
+          'I favor clear, sustainable approaches over complex "magic" solutions.',
+      },
+      {
+        title: "A Five-Year Perspective",
+        description:
+          "I make decisions that hold up five years from now, not ones that merely solve today.",
+      },
+      {
+        title: "Respect for the Next Engineer",
+        description:
+          "I write every line to guide the colleague who will inherit the code after me.",
+      },
+      {
+        title: "Discipline",
+        description:
+          "I believe in early delivery, thorough documentation, and data-driven iteration.",
+      },
     ],
     currentFocus: "Current Focus",
     currentFocusText:
-      "Building AI-powered applications and automation systems. Working with TypeScript, Astro, and modern web infrastructure. Exploring how language models change product engineering workflows.",
+      "I focus on building AI-powered applications and intelligent automation systems. Using modern web foundations such as TypeScript and Astro, I build high-performance projects and actively explore how large language models (LLMs) are transforming product engineering and software development workflows.",
     workingStyle: "Working Style",
-    workingStyleText:
-      "I work best in small teams with clear ownership. I prefer async communication with intentional sync points. I make decisions under ambiguity by identifying the reversible choice and shipping it. I optimize for long-term maintainability over short-term velocity.",
-    tooling: "Tooling",
-    toolingText:
-      "Languages: TypeScript, Python, Go. Frontend: Astro, React, vanilla CSS. Backend: Node.js, edge functions, serverless. Infrastructure: Vercel, AWS, Docker. AI: OpenAI API, LangChain, vector databases. I choose tools based on team context and project constraints, not personal preference.",
-    outsideWork: "Outside of Work",
-    outsideWorkText:
-      "I read engineering and systems literature — infrastructure papers, language design, and historical software decisions. I build side projects to test ideas before recommending them. I speak Turkish and English.",
+    workingStyleList: [
+      {
+        title: "Ownership and Autonomy",
+        description:
+          "I work at my best in small, agile teams with clear areas of responsibility.",
+      },
+      {
+        title: "Effective Communication",
+        description:
+          "Rather than constant meetings, I prefer asynchronous communication with intentional sync points that protect deep focus.",
+      },
+      {
+        title: "Managing Uncertainty",
+        description:
+          "In ambiguous situations, I quickly choose reversible decisions, ship, and keep the process moving forward.",
+      },
+      {
+        title: "Sustainable Pace",
+        description:
+          "Instead of temporary, rushed fixes, I stay focused on long-term sustainability and debt-free progress.",
+      },
+    ],
+    background: "Background",
+    backgroundList: [
+      {
+        title: "Academic Background",
+        description:
+          "I am continuing my Economics studies at Kadir Has University, blending the logic of financial systems with the world of software.",
+      },
+      {
+        title: "Engineering Literature",
+        description:
+          "Outside of work, I enjoy reading about infrastructure articles, programming language design, and historical software decisions.",
+      },
+      {
+        title: "Experimental Development",
+        description:
+          "Before defending an idea in theory, I always test it in practice by building side projects.",
+      },
+      {
+        title: "Languages",
+        description: "Turkish (Native), English (Professional).",
+      },
+    ],
   },
   contact: {
     title: "Contact",
@@ -919,27 +1029,83 @@ const de: Translations = {
     },
   },
   about: {
-    title: "Über",
-    principles: "Prinzipien",
+    title: "Über mich",
+    principles: "Engineering-Prinzipien",
     principlesList: [
-      "Ich baue Systeme, die ihren Erbauer überdauern.",
-      "Ich bevorzuge explizite Abwägungen gegenüber versteckter Komplexität.",
-      "Ich bewerte Entscheidungen danach, was in fünf Jahren noch gilt.",
-      "Ich schreibe Code für den Ingenieur, der ihn erbt.",
-      "Ich liefere früh, dokumentiere immer und iteriere mit Beweisen.",
+      {
+        title: "Langlebige Systeme",
+        description:
+          "Die Lebensdauer des Codes sollte länger sein als die Zeit, die sein Entwickler im Projekt verbringt.",
+      },
+      {
+        title: "Klarheit",
+        description:
+          'Statt komplexer „magischer" Lösungen bevorzuge ich klare und nachhaltige Ansätze.',
+      },
+      {
+        title: "Fünf-Jahres-Perspektive",
+        description:
+          "Ich treffe Entscheidungen, die auch in fünf Jahren noch Bestand haben, nicht solche, die nur das Heute retten.",
+      },
+      {
+        title: "Respekt vor dem nächsten Entwickler",
+        description:
+          "Ich schreibe jede Zeile so, dass sie dem Kollegen als Leitfaden dient, der den Code nach mir übernimmt.",
+      },
+      {
+        title: "Disziplin",
+        description:
+          "Ich glaube an frühe Lieferung, vollständige Dokumentation und datengetriebene Iteration.",
+      },
     ],
     currentFocus: "Aktueller Fokus",
     currentFocusText:
-      "Entwicklung von KI-gestützten Anwendungen und Automatisierungssystemen. Arbeit mit TypeScript, Astro und moderner Web-Infrastruktur. Erforschung, wie Sprachmodelle Produktentwicklungs-Workflows verändern.",
-    workingStyle: "Arbeitsstil",
-    workingStyleText:
-      "Ich arbeite am besten in kleinen Teams mit klaren Zuständigkeiten. Ich bevorzuge asynchrone Kommunikation mit gezielten Synchronisationen. Unter Unsicherheit treffe ich Entscheidungen, indem ich die reversible Option identifiziere und ausliefere. Ich optimiere für langfristige Wartbarkeit gegenüber kurzfristiger Geschwindigkeit.",
-    tooling: "Werkzeuge",
-    toolingText:
-      "Sprachen: TypeScript, Python, Go. Frontend: Astro, React, vanilla CSS. Backend: Node.js, Edge Functions, Serverless. Infrastruktur: Vercel, AWS, Docker. KI: OpenAI API, LangChain, Vektordatenbanken. Ich wähle Werkzeuge basierend auf Teamkontext und Projekteinschränkungen, nicht persönlicher Präferenz.",
-    outsideWork: "Außerhalb der Arbeit",
-    outsideWorkText:
-      "Ich lese Ingenieur- und Systemliteratur — Infrastrukturpapiere, Sprachdesign und historische Softwareentscheidungen. Ich entwickle Nebenprojekte, um Ideen zu testen, bevor ich sie empfehle. Ich spreche Türkisch und Englisch.",
+      "Ich konzentriere mich auf die Entwicklung KI-gestützter Anwendungen und intelligenter Automatisierungssysteme. Mit modernen Web-Grundlagen wie TypeScript und Astro baue ich leistungsstarke Projekte und erforsche aktiv, wie große Sprachmodelle (LLMs) das Produkt-Engineering und die Workflows der Softwareentwicklung verändern.",
+    workingStyle: "Arbeitsweise",
+    workingStyleList: [
+      {
+        title: "Verantwortung und Autonomie",
+        description:
+          "In kleinen, agilen Teams mit klaren Verantwortungsbereichen arbeite ich am effizientesten.",
+      },
+      {
+        title: "Effektive Kommunikation",
+        description:
+          "Statt ständiger Meetings bevorzuge ich asynchrone Kommunikation und bewusste Synchronisationspunkte, die tiefe Konzentration ermöglichen.",
+      },
+      {
+        title: "Umgang mit Unsicherheit",
+        description:
+          "In unklaren Situationen wähle ich schnell umkehrbare (reversible) Entscheidungen, liefere und treibe den Prozess voran.",
+      },
+      {
+        title: "Nachhaltiges Tempo",
+        description:
+          "Statt vorübergehender, überstürzter Lösungen halte ich langfristige Nachhaltigkeit und schuldenfreien Fortschritt im Fokus.",
+      },
+    ],
+    background: "Hintergrund",
+    backgroundList: [
+      {
+        title: "Akademischer Hintergrund",
+        description:
+          "Ich setze mein Wirtschaftsstudium an der Kadir-Has-Universität fort und verbinde die Logik finanzieller Systeme mit der Welt der Software.",
+      },
+      {
+        title: "Engineering-Literatur",
+        description:
+          "Außerhalb der Arbeit lese ich gerne Artikel über Infrastruktur, Programmiersprachen-Design und historische Softwareentscheidungen.",
+      },
+      {
+        title: "Experimentelle Entwicklung",
+        description:
+          "Bevor ich eine Idee in der Theorie verteidige, teste ich sie stets in der Praxis, indem ich Nebenprojekte entwickle.",
+      },
+      {
+        title: "Sprachen",
+        description: "Türkisch (Muttersprache), Englisch (Professionell).",
+      },
+    ],
   },
   contact: {
     title: "Kontakt",
@@ -1194,27 +1360,83 @@ const ar: Translations = {
     },
   },
   about: {
-    title: "نبذة",
-    principles: "المبادئ",
+    title: "نبذة عني",
+    principles: "مبادئ الهندسة",
     principlesList: [
-      "أبني أنظمة تدوم أطول من منشئها.",
-      "أفضل التنازلات الصريحة على التعقيد الخفي.",
-      "أقيس القرارات بما يبقى صحيحاً بعد خمس سنوات.",
-      "أكتب الكود للمهندس الذي يرثه.",
-      "أسلم مبكراً، أُوثق دائماً، وأتكرر بالأدلة.",
+      {
+        title: "أنظمة طويلة العمر",
+        description:
+          "يجب أن يدوم الكود لفترة أطول من بقاء مطوره في المشروع.",
+      },
+      {
+        title: "الوضوح",
+        description:
+          "بدلاً من الحلول «السحرية» المعقدة، أُفضّل المقاربات الواضحة والقابلة للاستدامة.",
+      },
+      {
+        title: "منظور خمس سنوات",
+        description:
+          "أتخذ قرارات تبقى صامدة بعد خمس سنوات، لا قرارات تنقذ اليوم فقط.",
+      },
+      {
+        title: "احترام المهندس التالي",
+        description:
+          "أكتب كل سطر ليكون دليلاً للزميل الذي سيتسلم الكود من بعدي.",
+      },
+      {
+        title: "الانضباط",
+        description:
+          "أؤمن بالتسليم المبكر، والتوثيق الكامل، والتكرار المبني على البيانات.",
+      },
     ],
     currentFocus: "التركيز الحالي",
     currentFocusText:
-      "أبني تطبيقات مدعومة بالذكاء الاصطناعي وأنظمة أتمتة. أعمل مع TypeScript و Astro والبنية التحتية الحديثة للويب. أستكشف كيف تغير نماذج اللغة سير عمل هندسة المنتجات.",
+      "أركّز على تطوير التطبيقات المدعومة بالذكاء الاصطناعي وأنظمة الأتمتة الذكية. باستخدام بنى ويب حديثة مثل TypeScript و Astro، أبني مشاريع عالية الأداء، وأختبر بنشاط كيف تُحوّل نماذج اللغة الكبيرة (LLM) هندسة المنتجات وسير عمل تطوير البرمجيات.",
     workingStyle: "أسلوب العمل",
-    workingStyleText:
-      "أعمل بأفضل شكل في فرق صغيرة مع ملكية واضحة. أفضل التواصل غير المتزامن مع نقاط تزامن مقصودة. أتخذ القرارات في حالة عدم اليقين من خلال تحديد الخيار القابل للتراجع عنه وتسليمه. أُحسّن للصيانة طويلة المدى على حساب السرعة قصيرة المدى.",
-    tooling: "الأدوات",
-    toolingText:
-      "لغات: TypeScript, Python, Go. الواجهة الأمامية: Astro, React, vanilla CSS. الواجهة الخلفية: Node.js, edge functions, serverless. البنية التحتية: Vercel, AWS, Docker. الذكاء الاصطناعي: OpenAI API, LangChain, قواعد بيانات المتجهات. أختار الأدوات بناءً على سياق الفريق وقيود المشروع، وليس التفضيل الشخصي.",
-    outsideWork: "خارج العمل",
-    outsideWorkText:
-      "أقرأ الأدبيات الهندسية وعلوم الأنظمة — أوراق البنية التحتية، تصميم اللغات، والقرارات البرمجية التاريخية. أبني مشاريع جانبية لاختبار الأفكار قبل التوصية بها. أتحدث التركية والإنجليزية.",
+    workingStyleList: [
+      {
+        title: "المسؤولية والاستقلالية",
+        description:
+          "أعمل بأعلى كفاءة في فرق صغيرة ورشيقة ذات مجالات مسؤولية واضحة.",
+      },
+      {
+        title: "التواصل الفعّال",
+        description:
+          "بدلاً من الاجتماعات المستمرة، أُفضّل التواصل غير المتزامن ونقاط التزامن المقصودة التي تتيح التركيز العميق.",
+      },
+      {
+        title: "إدارة عدم اليقين",
+        description:
+          "في الحالات الغامضة، أختار بسرعة القرارات القابلة للتراجع (reversible)، وأُسلّم، وأُمضي بالعملية قدماً.",
+      },
+      {
+        title: "وتيرة مستدامة",
+        description:
+          "بدلاً من الحلول المؤقتة والمتسرعة، أُبقي تركيزي على الاستدامة طويلة المدى والتقدم الخالي من الديون التقنية.",
+      },
+    ],
+    background: "الخلفية",
+    backgroundList: [
+      {
+        title: "الخلفية الأكاديمية",
+        description:
+          "أواصل دراستي في الاقتصاد بجامعة قادر هاس، وأمزج منطق الأنظمة المالية مع عالم البرمجيات.",
+      },
+      {
+        title: "أدبيات الهندسة",
+        description:
+          "خارج العمل، أستمتع بقراءة مقالات البنية التحتية، وتصاميم لغات البرمجة، والقرارات البرمجية التاريخية.",
+      },
+      {
+        title: "التطوير التجريبي",
+        description:
+          "قبل أن أُدافع عن فكرة نظرياً، أختبرها دائماً عملياً من خلال بناء مشاريع جانبية (side-projects).",
+      },
+      {
+        title: "اللغات",
+        description: "التركية (اللغة الأم)، الإنجليزية (مستوى مهني).",
+      },
+    ],
   },
   contact: {
     title: "التواصل",

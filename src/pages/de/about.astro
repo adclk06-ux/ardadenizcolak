@@ -14,11 +14,14 @@ const tx = t(lang);
 
     <section class="about-section">
       <h2>{tx.about.principles}</h2>
-      <ul class="principle-list">
-        {tx.about.principlesList.map((principle) => (
-          <li>{principle}</li>
+      <div class="about-grid">
+        {tx.about.principlesList.map((item) => (
+          <article class="about-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
         ))}
-      </ul>
+      </div>
     </section>
 
     <section class="about-section">
@@ -28,17 +31,26 @@ const tx = t(lang);
 
     <section class="about-section">
       <h2>{tx.about.workingStyle}</h2>
-      <p>{tx.about.workingStyleText}</p>
+      <div class="about-grid">
+        {tx.about.workingStyleList.map((item) => (
+          <article class="about-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="about-section">
-      <h2>{tx.about.tooling}</h2>
-      <p>{tx.about.toolingText}</p>
-    </section>
-
-    <section class="about-section">
-      <h2>{tx.about.outsideWork}</h2>
-      <p>{tx.about.outsideWorkText}</p>
+      <h2>{tx.about.background}</h2>
+      <div class="about-grid">
+        {tx.about.backgroundList.map((item) => (
+          <article class="about-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
     </section>
   </div>
 </Base>
@@ -83,17 +95,31 @@ const tx = t(lang);
     max-width: var(--measure-prose);
   }
 
-  .principle-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
   }
 
-  .principle-list li {
+  .about-card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+  }
+
+  .about-card h3 {
     font-size: var(--type-body);
     line-height: var(--line-body);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .about-card p {
+    font-size: var(--type-small);
+    line-height: var(--line-body);
     color: var(--color-text-muted);
-    max-width: var(--measure-prose);
+    max-width: none;
   }
 </style>
