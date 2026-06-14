@@ -1,21 +1,27 @@
 import mdx from "@astrojs/mdx";
 import { defineConfig } from "astro/config";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://ardadenizcolak.com",
   trailingSlash: "never",
   compressHTML: true,
+
   build: {
     format: "directory",
   },
+
   integrations: [mdx()],
+
   markdown: {
     shikiConfig: {
       theme: "github-dark",
       wrap: true,
     },
   },
+
   vite: {
     resolve: {
       alias: {
@@ -34,4 +40,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare()
 });
