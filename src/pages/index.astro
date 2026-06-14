@@ -61,6 +61,31 @@ const s = tx.homeSections;
     <p class="pricing-note">{s.packages.pricingNote}</p>
   </section>
 
+  <section class="section example-solutions" aria-labelledby="example-title">
+    <h2 id="example-title">{s.exampleSolutions.title}</h2>
+    <p class="section-intro">{s.exampleSolutions.intro}</p>
+    <div class="card-grid three">
+      {s.exampleSolutions.items.map((item) => (
+        <div class="card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">{s.faq.title}</h2>
+    <div class="faq-list">
+      {s.faq.items.map((item) => (
+        <details class="faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
   <section class="section trust" aria-labelledby="trust-title">
     <h2 id="trust-title">{s.trust.title}</h2>
     <ul class="trust-list">
@@ -248,6 +273,67 @@ const s = tx.homeSections;
     color: var(--color-text-muted);
     margin-top: var(--space-4);
     font-style: italic;
+  }
+
+  .section-intro {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-body);
+    margin-bottom: var(--space-5);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: var(--measure-prose);
+  }
+
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    padding: var(--space-3) var(--space-4);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: var(--type-body);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    transition: transform var(--duration-fast) ease-out;
+  }
+
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+
+  .faq-item p {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    padding: 0 var(--space-4) var(--space-3);
+    margin: 0;
   }
 
   .final-cta {

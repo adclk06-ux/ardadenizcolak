@@ -70,6 +70,15 @@ export interface Translations {
       items: { title: string; description: string }[];
       pricingNote: string;
     };
+    exampleSolutions: {
+      title: string;
+      intro: string;
+      items: { title: string; description: string }[];
+    };
+    faq: {
+      title: string;
+      items: { question: string; answer: string }[];
+    };
     trust: {
       title: string;
       items: string[];
@@ -254,6 +263,74 @@ const tr: Translations = {
         },
       ],
       pricingNote: "Proje kapsamına göre tekliflendirilir.",
+    },
+    exampleSolutions: {
+      title: "Örnek Çözümler",
+      intro:
+        "Farklı işletme ihtiyaçları için uygulanabilir, sade ve sürdürülebilir dijital çözümler geliştiriyorum.",
+      items: [
+        {
+          title: "Restoran ve Kafeler",
+          description:
+            "QR menü, WhatsApp sipariş yönlendirmesi, rezervasyon ve müşteri iletişim akışları.",
+        },
+        {
+          title: "Küçük İşletmeler",
+          description:
+            "Kurumsal web sitesi, iletişim formları, Google görünürlüğü ve temel dijital altyapı.",
+        },
+        {
+          title: "Emlak ve Danışmanlık",
+          description: "İlan, müşteri, randevu ve takip süreçleri için özel panel ve otomasyonlar.",
+        },
+        {
+          title: "Servis ve Hizmet Firmaları",
+          description: "Randevu, teklif, müşteri kaydı ve iş takibi için sade yönetim sistemleri.",
+        },
+        {
+          title: "Excel ve Manuel İşler",
+          description: "Tekrarlayan tablo, raporlama ve veri giriş süreçlerini otomasyona çevirme.",
+        },
+        {
+          title: "Kişisel Marka ve Portfolyo",
+          description: "Güven veren, hızlı, mobil uyumlu ve profesyonel kişisel web siteleri.",
+        },
+      ],
+    },
+    faq: {
+      title: "Sık Sorulan Sorular",
+      items: [
+        {
+          question: "Web sitesi kaç günde hazırlanır?",
+          answer:
+            "Projenin kapsamına göre değişir. Basit portfolyo ve tanıtım siteleri genellikle daha kısa sürede, kapsamlı kurumsal siteler ise planlama ve içerik durumuna göre hazırlanır.",
+        },
+        {
+          question: "Domain ve yayınlama kurulumu dahil mi?",
+          answer:
+            "Evet. Domain yönlendirme, Vercel yayını, temel teknik kurulum ve yayına alma sürecinde destek sağlayabilirim.",
+        },
+        {
+          question: "Mobil uyumlu olur mu?",
+          answer:
+            "Evet. Tüm web siteleri mobil, tablet ve masaüstü cihazlarda düzgün çalışacak şekilde tasarlanır.",
+        },
+        {
+          question: "Teslimden sonra destek veriyor musunuz?",
+          answer:
+            "Evet. Teslim sonrası küçük düzenlemeler, teknik kontrol ve yönlendirme konusunda destek verilebilir.",
+        },
+        {
+          question: "Otomasyon mevcut iş akışıma uyarlanır mı?",
+          answer:
+            "Evet. Önce mevcut süreci anlayıp, manuel yükü azaltacak en uygun otomasyon yapısı planlanır.",
+        },
+        {
+          question: "Fiyatlandırma nasıl yapılır?",
+          answer:
+            "Fiyatlandırma projenin kapsamına, sayfa sayısına, entegrasyon ihtiyacına ve özel yazılım gereksinimlerine göre belirlenir.",
+        },
+      ],
     },
     trust: {
       title: "Neden Benimle Çalışmalısınız?",
@@ -464,6 +541,76 @@ const en: Translations = {
         },
       ],
       pricingNote: "Pricing is based on project scope.",
+    },
+    exampleSolutions: {
+      title: "Example Solutions",
+      intro:
+        "I develop practical, clean and sustainable digital solutions for different business needs.",
+      items: [
+        {
+          title: "Restaurants and Cafes",
+          description:
+            "QR menu, WhatsApp order routing, reservation and customer communication flows.",
+        },
+        {
+          title: "Small Businesses",
+          description:
+            "Corporate website, contact forms, Google visibility and basic digital infrastructure.",
+        },
+        {
+          title: "Real Estate and Consulting",
+          description:
+            "Custom dashboards and automations for listings, clients, appointments and tracking.",
+        },
+        {
+          title: "Service Companies",
+          description:
+            "Simple management systems for appointments, quotes, customer records and job tracking.",
+        },
+        {
+          title: "Excel and Manual Work",
+          description:
+            "Converting recurring spreadsheets, reporting and data entry processes into automation.",
+        },
+        {
+          title: "Personal Brand and Portfolio",
+          description: "Trustworthy, fast, mobile-friendly and professional personal websites.",
+        },
+      ],
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "How long does it take to build a website?",
+          answer:
+            "It depends on the project scope. Simple portfolio and landing sites are usually ready sooner, while comprehensive corporate sites depend on planning and content readiness.",
+        },
+        {
+          question: "Is domain and publishing setup included?",
+          answer:
+            "Yes. I can assist with domain routing, Vercel deployment, basic technical setup and the go-live process.",
+        },
+        {
+          question: "Will it be mobile-friendly?",
+          answer:
+            "Yes. All websites are designed to work properly on mobile, tablet and desktop devices.",
+        },
+        {
+          question: "Do you provide support after delivery?",
+          answer: "Yes. Small edits, technical checks and guidance can be provided after delivery.",
+        },
+        {
+          question: "Can automation be adapted to my existing workflow?",
+          answer:
+            "Yes. I first understand your current process, then plan the most suitable automation structure to reduce manual workload.",
+        },
+        {
+          question: "How is pricing determined?",
+          answer:
+            "Pricing is determined based on project scope, page count, integration needs and custom software requirements.",
+        },
+      ],
     },
     trust: {
       title: "Why Work With Me?",
@@ -677,6 +824,78 @@ const de: Translations = {
       ],
       pricingNote: "Die Preisgestaltung erfolgt je nach Projektumfang.",
     },
+    exampleSolutions: {
+      title: "Beispiellösungen",
+      intro:
+        "Ich entwickle praktische, übersichtliche und nachhaltige digitale Lösungen für unterschiedliche Geschäftsanforderungen.",
+      items: [
+        {
+          title: "Restaurants und Cafés",
+          description:
+            "QR-Menü, WhatsApp-Bestellweiterleitung, Reservierungs- und Kundenkommunikationsabläufe.",
+        },
+        {
+          title: "Kleine Unternehmen",
+          description:
+            "Unternehmenswebsite, Kontaktformulare, Google-Sichtbarkeit und grundlegende digitale Infrastruktur.",
+        },
+        {
+          title: "Immobilien und Beratung",
+          description:
+            "Maßgeschneiderte Dashboards und Automatisierungen für Anzeigen, Kunden, Termine und Nachverfolgung.",
+        },
+        {
+          title: "Dienstleistungsunternehmen",
+          description:
+            "Einfache Verwaltungssysteme für Termine, Angebote, Kundenakten und Auftragsverfolgung.",
+        },
+        {
+          title: "Excel und manuelle Arbeiten",
+          description:
+            "Umwandlung wiederkehrender Tabellenkalkulationen, Berichterstellung und Dateneingabeprozesse in Automatisierung.",
+        },
+        {
+          title: "Persönliche Marke und Portfolio",
+          description:
+            "Vertrauenswürdige, schnelle, mobile und professionelle persönliche Websites.",
+        },
+      ],
+    },
+    faq: {
+      title: "Häufig gestellte Fragen",
+      items: [
+        {
+          question: "Wie lange dauert die Erstellung einer Website?",
+          answer:
+            "Es hängt vom Projektumfang ab. Einfache Portfolio- und Landingpage-Sites sind in der Regel schneller fertig, während umfassende Unternehmenswebsites von Planung und Inhaltsverfügbarkeit abhängen.",
+        },
+        {
+          question: "Ist Domain- und Veröffentlichungs-Setup inbegriffen?",
+          answer:
+            "Ja. Ich kann bei Domain-Routing, Vercel-Bereitstellung, grundlegendem technischem Setup und dem Go-Live-Prozess unterstützen.",
+        },
+        {
+          question: "Ist es mobilfreundlich?",
+          answer:
+            "Ja. Alle Websites werden so gestaltet, dass sie auf Mobilgeräten, Tablets und Desktop-Geräten ordnungsgemäß funktionieren.",
+        },
+        {
+          question: "Bieten Sie Support nach der Auslieferung?",
+          answer:
+            "Ja. Kleine Bearbeitungen, technische Überprüfungen und Beratung können nach der Auslieferung erfolgen.",
+        },
+        {
+          question: "Kann die Automatisierung an meinen bestehenden Workflow angepasst werden?",
+          answer:
+            "Ja. Ich verstehe zunächst Ihren aktuellen Prozess und plane dann die passendste Automatisierungsstruktur zur Reduzierung manueller Arbeit.",
+        },
+        {
+          question: "Wie wird die Preisgestaltung festgelegt?",
+          answer:
+            "Die Preisgestaltung erfolgt je nach Projektumfang, Seitenanzahl, Integrationsbedarf und individuellen Softwareanforderungen.",
+        },
+      ],
+    },
     trust: {
       title: "Warum mit mir arbeiten?",
       items: [
@@ -887,6 +1106,69 @@ const ar: Translations = {
         },
       ],
       pricingNote: "يتم تحديد السعر حسب نطاق المشروع.",
+    },
+    exampleSolutions: {
+      title: "حلول مثالية",
+      intro: "أطور حلولاً رقمية عملية ونظيفة ومستدامة لتلبية احتياجات الأعمال المختلفة.",
+      items: [
+        {
+          title: "المطاعم والمقاهي",
+          description: "قائمة QR، توجيه طلبات واتساب، حجوزات وتدفقات التواصل مع العملاء.",
+        },
+        {
+          title: "الشركات الصغيرة",
+          description: "موقع شركة، نماذج اتصال، الظهور على جوجل والبنية التحتية الرقمية الأساسية.",
+        },
+        {
+          title: "العقارات والاستشارات",
+          description: "لوحات تحكم وأتمتة مخصصة للقوائم والعملاء والمواعيد والتتبع.",
+        },
+        {
+          title: "شركات الخدمات",
+          description: "أنظمة إدارة بسيطة للمواعيد والعروض وسجلات العملاء وتتبع الأعمال.",
+        },
+        {
+          title: "إكسل والعمل اليدوي",
+          description: "تحويل جداول البيانات المتكررة والتقارير وعمليات إدخال البيانات إلى أتمتة.",
+        },
+        {
+          title: "العلامة التجارية الشخصية والمحفظة",
+          description: "مواقع شخصية موثوقة وسريعة ومتجاوبة مع الجوال واحترافية.",
+        },
+      ],
+    },
+    faq: {
+      title: "الأسئلة الشائعة",
+      items: [
+        {
+          question: "كم يستغرق بناء الموقع؟",
+          answer:
+            "يعتمد على نطاق المشروع. مواقع المحافظ والصفحات المقصودة البسيطة تكون جاهزة عادةً بشكل أسرع، بينما المواقع المؤسسية الشاملة تعتمد على التخطيط وتوفر المحتوى.",
+        },
+        {
+          question: "هل يشمل ذلك إعداد النطاق والنشر؟",
+          answer:
+            "نعم. يمكنني المساعدة في توجيه النطاق، والنشر على Vercel، والإعداد التقني الأساسي وعملية الإطلاق.",
+        },
+        {
+          question: "هل هو متجاوب مع الجوال؟",
+          answer:
+            "نعم. جميع المواقع مصممة لتعمل بشكل صحيح على أجهزة الجوال والأجهزة اللوحية وأجهزة الكمبيوتر المكتبية.",
+        },
+        {
+          question: "هل تقدم دعماً بعد التسليم؟",
+          answer: "نعم. يمكن تقديم تعديلات بسيطة، وفحوصات تقنية وإرشادات بعد التسليم.",
+        },
+        {
+          question: "هل يمكن تكييف الأتمتة مع سير العمل الحالي لدي؟",
+          answer: "نعم. أفهم أولاً عمليتك الحالية، ثم أخطط لأنسب بنية أتمتة لتقليل العمل اليدوي.",
+        },
+        {
+          question: "كيف يتم تحديد الأسعار؟",
+          answer:
+            "يتم تحديد الأسعار بناءً على نطاق المشروع، وعدد الصفحات، واحتياجات التكامل ومتطلبات البرمجيات المخصصة.",
+        },
+      ],
     },
     trust: {
       title: "لماذا تعمل معي؟",
