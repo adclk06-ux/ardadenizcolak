@@ -4,6 +4,7 @@ import { t } from "@lib/i18n.js";
 
 const lang = "en";
 const tx = t(lang);
+const s = tx.homeSections;
 ---
 
 <Base title="Arda Deniz Çolak" description={tx.meta.description} lang={lang}>
@@ -11,7 +12,72 @@ const tx = t(lang);
     <p class="eyebrow">{tx.home.eyebrow}</p>
     <h1 class="headline">{tx.home.headline}</h1>
     <p class="description">{tx.home.description}</p>
-    <a href="/en/work" class="cta">{tx.home.cta} <span aria-hidden="true">→</span></a>
+    <a href="/en/work" class="cta-link">{tx.home.cta} <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="section services" aria-labelledby="services-title">
+    <h2 id="services-title">{s.services.title}</h2>
+    <div class="card-grid three">
+      {s.services.items.map((item) => (
+        <div class="card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section value" aria-labelledby="value-title">
+    <h2 id="value-title">{s.value.title}</h2>
+    <ul class="value-list">
+      {s.value.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section process" aria-labelledby="process-title">
+    <h2 id="process-title">{s.process.title}</h2>
+    <ol class="process-list">
+      {s.process.steps.map((step, i) => (
+        <li>
+          <span class="step-num">{i + 1}</span>
+          <span class="step-text">{step}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section packages" aria-labelledby="packages-title">
+    <h2 id="packages-title">{s.packages.title}</h2>
+    <div class="card-grid four">
+      {s.packages.items.map((item) => (
+        <div class="card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+    <p class="pricing-note">{s.packages.pricingNote}</p>
+  </section>
+
+  <section class="section trust" aria-labelledby="trust-title">
+    <h2 id="trust-title">{s.trust.title}</h2>
+    <ul class="trust-list">
+      {s.trust.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section final-cta" aria-labelledby="cta-title">
+    <h2 id="cta-title">{s.cta.title}</h2>
+    <p class="cta-text">{s.cta.text}</p>
+    <div class="cta-group">
+      <a href="/en/contact" class="btn-primary">{s.cta.primaryButton}</a>
+      <a href="https://wa.me/905445257040" class="btn-secondary" target="_blank" rel="noopener">{s.cta.whatsappButton}</a>
+      <a href="/en/work" class="btn-ghost">{s.cta.workButton}</a>
+    </div>
   </section>
 </Base>
 
@@ -54,7 +120,7 @@ const tx = t(lang);
     max-width: var(--measure-body);
   }
 
-  .cta {
+  .cta-link {
     font-size: var(--type-body);
     line-height: var(--line-body);
     font-weight: var(--weight-medium);
@@ -64,18 +130,258 @@ const tx = t(lang);
     margin-top: var(--space-2);
   }
 
-  .cta:hover {
+  .cta-link:hover {
     color: var(--color-accent-hover);
+  }
+
+  .section {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-7);
+    width: 100%;
+  }
+
+  .section h2 {
+    font-size: var(--type-section);
+    line-height: var(--line-section);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-5);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid.four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+  }
+
+  .card h3 {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .card p {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+  }
+
+  .value-list,
+  .trust-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+
+  .value-list li,
+  .trust-list li {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+  }
+
+  .process-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    counter-reset: step;
+  }
+
+  .process-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    font-weight: var(--weight-semibold);
+    color: var(--color-surface);
+    background-color: var(--color-text);
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .step-text {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+  }
+
+  .pricing-note {
+    font-size: var(--type-small);
+    line-height: var(--line-small);
+    color: var(--color-text-muted);
+    margin-top: var(--space-4);
+    font-style: italic;
+  }
+
+  .final-cta {
+    text-align: center;
+    padding-block: var(--space-8);
+  }
+
+  .final-cta h2 {
+    max-width: var(--measure-prose);
+    margin-inline: auto;
+  }
+
+  .cta-text {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-body);
+    margin-inline: auto;
+    margin-bottom: var(--space-5);
+  }
+
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .btn-primary {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-surface);
+    background-color: var(--color-text);
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-5);
+    transition: opacity var(--duration-fast) ease-out;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+
+  .btn-secondary {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-5);
+    transition: border-color var(--duration-fast) ease-out;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-text-muted);
+  }
+
+  .btn-ghost {
+    font-size: var(--type-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    color: var(--color-accent);
+    padding: var(--space-2) var(--space-5);
+    transition: color var(--duration-fast) ease-out;
+  }
+
+  .btn-ghost:hover {
+    color: var(--color-accent-hover);
+  }
+
+  @media (max-width: 1023px) {
+    .card-grid.four {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .card-grid.three,
+    .card-grid.four {
+      grid-template-columns: 1fr;
+    }
+
+    .value-list,
+    .trust-list {
+      grid-template-columns: 1fr;
+    }
+
+    .headline {
+      font-size: var(--type-hero);
+      line-height: var(--line-hero);
+    }
+
+    .final-cta h2 {
+      font-size: var(--type-section);
+      line-height: var(--line-section);
+    }
   }
 
   @media (max-width: 639px) {
     .hero {
       gap: var(--space-4);
+      min-height: auto;
+      padding-block: var(--space-7);
     }
 
     .headline {
       font-size: var(--type-section);
       line-height: var(--line-section);
+    }
+
+    .section {
+      padding-block: var(--space-6);
+    }
+
+    .section h2 {
+      font-size: var(--type-body);
+      line-height: var(--line-body);
+    }
+
+    .cta-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost {
+      text-align: center;
     }
   }
 </style>

@@ -52,6 +52,36 @@ export interface Translations {
     description: string;
     cta: string;
   };
+  homeSections: {
+    services: {
+      title: string;
+      items: { title: string; description: string }[];
+    };
+    value: {
+      title: string;
+      items: string[];
+    };
+    process: {
+      title: string;
+      steps: string[];
+    };
+    packages: {
+      title: string;
+      items: { title: string; description: string }[];
+      pricingNote: string;
+    };
+    trust: {
+      title: string;
+      items: string[];
+    };
+    cta: {
+      title: string;
+      text: string;
+      primaryButton: string;
+      whatsappButton: string;
+      workButton: string;
+    };
+  };
   about: {
     title: string;
     principles: string;
@@ -159,6 +189,90 @@ const tr: Translations = {
     description:
       "Ölçeklenebilir sistemler, yapay zeka destekli uygulamalar ve uzun vadeli sürdürülebilirliği öncelik alan dijital ürünler tasarlıyorum.",
     cta: "Çalışmaları Keşfet",
+  },
+  homeSections: {
+    services: {
+      title: "Neler Yapıyorum?",
+      items: [
+        {
+          title: "Web Site Yapımı",
+          description: "Kurumsal, hızlı, mobil uyumlu ve SEO temelli web siteleri geliştiriyorum.",
+        },
+        {
+          title: "Otomasyon Entegrasyonu",
+          description:
+            "Tekrarlayan işleri azaltan form, tablo, CRM, WhatsApp, e-posta ve iş akışı otomasyonları kuruyorum.",
+        },
+        {
+          title: "Yazılım Çözümleri",
+          description:
+            "İşletmeye özel panel, takip sistemi, veri yönetimi ve entegrasyon çözümleri geliştiriyorum.",
+        },
+      ],
+    },
+    value: {
+      title: "Size Ne Kazandırır?",
+      items: [
+        "Daha profesyonel dijital görünüm",
+        "Daha hızlı operasyon",
+        "Daha az manuel iş",
+        "Daha kolay müşteri iletişimi",
+        "Ölçülebilir ve sürdürülebilir sistem",
+        "Yayına alma ve teknik kurulum desteği",
+      ],
+    },
+    process: {
+      title: "Nasıl Çalışırım?",
+      steps: [
+        "İhtiyacı anlarız",
+        "Yapıyı planlarız",
+        "Tasarım ve geliştirme yapılır",
+        "Test edilir",
+        "Yayına alınır",
+        "Gerekirse destek verilir",
+      ],
+    },
+    packages: {
+      title: "Hizmet Alanları",
+      items: [
+        {
+          title: "Başlangıç Web Sitesi",
+          description:
+            "Kişisel marka, portfolyo veya küçük işletmeler için hızlı ve şık web sitesi.",
+        },
+        {
+          title: "Kurumsal Web Sitesi",
+          description: "Şirketler için güven veren, mobil uyumlu ve SEO temelli web sitesi.",
+        },
+        {
+          title: "Otomasyon Danışmanlığı",
+          description: "Manuel iş yükünü azaltan dijital süreç ve entegrasyon çözümleri.",
+        },
+        {
+          title: "Özel Yazılım / Panel",
+          description: "İşletmeye özel takip, yönetim ve veri işleme sistemleri.",
+        },
+      ],
+      pricingNote: "Proje kapsamına göre tekliflendirilir.",
+    },
+    trust: {
+      title: "Neden Benimle Çalışmalısınız?",
+      items: [
+        "Temiz ve sürdürülebilir kod",
+        "Mobil uyumlu modern arayüz",
+        "Hızlı ve güvenli yayın süreci",
+        "Domain, hosting ve Vercel kurulum desteği",
+        "SEO temeli ve performans odaklı yapı",
+        "Teslim sonrası teknik destek",
+      ],
+    },
+    cta: {
+      title: "Projenizi dijitale taşımaya hazır mısınız?",
+      text: "Web sitesi, otomasyon veya özel yazılım ihtiyacınızı netleştirip uygulanabilir bir çözüme dönüştürelim.",
+      primaryButton: "Proje için görüşelim",
+      whatsappButton: "WhatsApp'tan yaz",
+      workButton: "Çalışmaları incele",
+    },
   },
   about: {
     title: "Hakkımda",
@@ -286,6 +400,90 @@ const en: Translations = {
       "I design scalable systems, AI-powered applications, and thoughtful digital products with long-term maintainability in mind.",
     cta: "Explore Work",
   },
+  homeSections: {
+    services: {
+      title: "What I Do",
+      items: [
+        {
+          title: "Website Development",
+          description: "I build corporate, fast, mobile-friendly and SEO-based websites.",
+        },
+        {
+          title: "Automation Integration",
+          description:
+            "I set up automations for forms, spreadsheets, CRMs, WhatsApp, email and workflows that reduce repetitive tasks.",
+        },
+        {
+          title: "Software Solutions",
+          description:
+            "I develop custom dashboards, tracking systems, data management and integration solutions tailored to your business.",
+        },
+      ],
+    },
+    value: {
+      title: "What You Gain",
+      items: [
+        "A more professional digital presence",
+        "Faster operations",
+        "Less manual work",
+        "Easier customer communication",
+        "A measurable and sustainable system",
+        "Deployment and technical setup support",
+      ],
+    },
+    process: {
+      title: "How I Work",
+      steps: [
+        "We understand the need",
+        "We plan the structure",
+        "Design and development",
+        "Testing",
+        "Go live",
+        "Ongoing support if needed",
+      ],
+    },
+    packages: {
+      title: "Service Areas",
+      items: [
+        {
+          title: "Starter Website",
+          description:
+            "A fast and elegant website for personal brands, portfolios or small businesses.",
+        },
+        {
+          title: "Corporate Website",
+          description: "A trustworthy, mobile-friendly, SEO-based website for companies.",
+        },
+        {
+          title: "Automation Consulting",
+          description: "Digital process and integration solutions that reduce manual workload.",
+        },
+        {
+          title: "Custom Software / Panel",
+          description: "Custom tracking, management and data processing systems for your business.",
+        },
+      ],
+      pricingNote: "Pricing is based on project scope.",
+    },
+    trust: {
+      title: "Why Work With Me?",
+      items: [
+        "Clean and maintainable code",
+        "Mobile-friendly modern interface",
+        "Fast and secure deployment process",
+        "Domain, hosting and Vercel setup support",
+        "SEO foundation and performance-focused structure",
+        "Post-delivery technical support",
+      ],
+    },
+    cta: {
+      title: "Ready to take your project digital?",
+      text: "Let's clarify your website, automation or custom software needs and turn them into an actionable solution.",
+      primaryButton: "Let's discuss your project",
+      whatsappButton: "Message on WhatsApp",
+      workButton: "View my work",
+    },
+  },
   about: {
     title: "About",
     principles: "Principles",
@@ -411,6 +609,92 @@ const de: Translations = {
     description:
       "Ich entwerfe skalierbare Systeme, KI-gestützte Anwendungen und durchdachte digitale Produkte mit langfristiger Wartbarkeit.",
     cta: "Arbeit erkunden",
+  },
+  homeSections: {
+    services: {
+      title: "Was ich mache",
+      items: [
+        {
+          title: "Website-Entwicklung",
+          description: "Ich entwickle professionelle, schnelle, mobile und SEO-basierte Websites.",
+        },
+        {
+          title: "Automatisierungsintegration",
+          description:
+            "Ich richte Automatisierungen für Formulare, Tabellen, CRMs, WhatsApp, E-Mail und Workflows ein, die repetitive Aufgaben reduzieren.",
+        },
+        {
+          title: "Softwarelösungen",
+          description:
+            "Ich entwickle maßgeschneiderte Dashboards, Tracking-Systeme, Datenmanagement- und Integrationslösungen für Ihr Unternehmen.",
+        },
+      ],
+    },
+    value: {
+      title: "Was Sie gewinnen",
+      items: [
+        "Eine professionellere digitale Präsenz",
+        "Schnellere Abläufe",
+        "Weniger manuelle Arbeit",
+        "Einfachere Kundenkommunikation",
+        "Ein messbares und nachhaltiges System",
+        "Unterstützung bei Bereitstellung und technischem Setup",
+      ],
+    },
+    process: {
+      title: "Wie ich arbeite",
+      steps: [
+        "Wir verstehen den Bedarf",
+        "Wir planen die Struktur",
+        "Design und Entwicklung",
+        "Tests",
+        "Veröffentlichung",
+        "Laufende Unterstützung bei Bedarf",
+      ],
+    },
+    packages: {
+      title: "Servicebereiche",
+      items: [
+        {
+          title: "Starter-Website",
+          description:
+            "Eine schnelle und elegante Website für Personal Brands, Portfolios oder kleine Unternehmen.",
+        },
+        {
+          title: "Unternehmenswebsite",
+          description: "Eine vertrauenswürdige, mobile und SEO-basierte Website für Unternehmen.",
+        },
+        {
+          title: "Automatisierungsberatung",
+          description:
+            "Digitale Prozess- und Integrationslösungen, die manuelle Arbeitslast reduzieren.",
+        },
+        {
+          title: "Maßgeschneiderte Software / Panel",
+          description:
+            "Maßgeschneiderte Tracking-, Management- und Datenverarbeitungssysteme für Ihr Unternehmen.",
+        },
+      ],
+      pricingNote: "Die Preisgestaltung erfolgt je nach Projektumfang.",
+    },
+    trust: {
+      title: "Warum mit mir arbeiten?",
+      items: [
+        "Sauberer und wartbarer Code",
+        "Mobilefreundliche moderne Oberfläche",
+        "Schneller und sicherer Bereitstellungsprozess",
+        "Unterstützung bei Domain, Hosting und Vercel-Setup",
+        "SEO-Grundlage und leistungsorientierte Struktur",
+        "Technischer Support nach der Auslieferung",
+      ],
+    },
+    cta: {
+      title: "Bereit, Ihr Projekt digital umzusetzen?",
+      text: "Lassen Sie uns Ihre Website-, Automatisierungs- oder Softwareanforderungen klären und in eine umsetzbare Lösung verwandeln.",
+      primaryButton: "Projekt besprechen",
+      whatsappButton: "Auf WhatsApp schreiben",
+      workButton: "Arbeiten ansehen",
+    },
   },
   about: {
     title: "Über",
@@ -539,6 +823,89 @@ const ar: Translations = {
     description:
       "أصمم أنظمة قابلة للتوسع، وتطبيقات مدعومة بالذكاء الاصطناعي، ومنتجات رقمية مدروسة مع الأخذ في الاعتبار الصيانة طويلة المدى.",
     cta: "استكشف الأعمال",
+  },
+  homeSections: {
+    services: {
+      title: "ماذا أفعل؟",
+      items: [
+        {
+          title: "تطوير المواقع",
+          description:
+            "أبني مواقع مؤسسية سريعة ومتجاوبة مع الجوال ومبنية على أساس تحسين محركات البحث.",
+        },
+        {
+          title: "تكامل الأتمتة",
+          description:
+            "أُنشئ أتمتة للنماذج والجداول وإدارة علاقات العملاء وواتساب والبريد الإلكتروني وسير العمل لتقليل المهام المتكررة.",
+        },
+        {
+          title: "حلول البرمجيات",
+          description: "أطور لوحات تحكم وأنظمة تتبع وإدارة بيانات وحلول تكامل مخصصة لعملك.",
+        },
+      ],
+    },
+    value: {
+      title: "ما الذي ستكتسبه؟",
+      items: [
+        "حضور رقمي أكثر احترافية",
+        "عمليات أسرع",
+        "عمل يدوي أقل",
+        "تواصل أسهل مع العملاء",
+        "نظام قابل للقياس والاستدامة",
+        "دعم النشر والإعداد التقني",
+      ],
+    },
+    process: {
+      title: "كيف أعمل؟",
+      steps: [
+        "نفهم الاحتياج",
+        "نخطط البنية",
+        "التصميم والتطوير",
+        "الاختبار",
+        "النشر",
+        "الدعم المستمر عند الحاجة",
+      ],
+    },
+    packages: {
+      title: "مجالات الخدمة",
+      items: [
+        {
+          title: "موقع البداية",
+          description: "موقع سريع وأنيق للعلامات التجارية الشخصية أو المحافظ أو الشركات الصغيرة.",
+        },
+        {
+          title: "موقع المؤسسة",
+          description: "موقع موثوق ومتجاوب مع الجوال ومبني على أساس تحسين محركات البحث للشركات.",
+        },
+        {
+          title: "استشارات الأتمتة",
+          description: "حلول العمليات الرقمية والتكامل التي تقلل من العبء اليدوي.",
+        },
+        {
+          title: "برمجيات / لوحة مخصصة",
+          description: "أنظمة تتبع وإدارة ومعالجة بيانات مخصصة لعملك.",
+        },
+      ],
+      pricingNote: "يتم تحديد السعر حسب نطاق المشروع.",
+    },
+    trust: {
+      title: "لماذا تعمل معي؟",
+      items: [
+        "كود نظيف وقابل للصيانة",
+        "واجهة حديثة متجاوبة مع الجوال",
+        "عملية نشر سريعة وآمنة",
+        "دعم إعداد النطاق والاستضافة وVercel",
+        "أساس تحسين محركات البحث وبنية موجهة نحو الأداء",
+        "دعم تقني ما بعد التسليم",
+      ],
+    },
+    cta: {
+      title: "هل أنت مستعد لتحويل مشروعك إلى رقمي؟",
+      text: "لنُوضح احتياجات موقعك أو الأتمتة أو البرمجيات المخصصة ونحوّلها إلى حل قابل للتنفيذ.",
+      primaryButton: "لنناقش مشروعك",
+      whatsappButton: "تواصل عبر واتساب",
+      workButton: "استعرض أعمالي",
+    },
   },
   about: {
     title: "نبذة",
